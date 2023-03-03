@@ -28,7 +28,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.U
 
             if (rowsAffected <= 0)
             {
-                _notificationContext.Create(HttpStatusCode.InternalServerError, "Error ao create message, please try again.");
+                _notificationContext.Create(HttpStatusCode.InternalServerError, "Error on create message, please try again.");
                 return CreateMessageOutput.Empty;
             }
             return CreateMessageOutput.Create(true);
