@@ -8,14 +8,13 @@ namespace XpInc.Security.FacialBiometrics.Application.Shared.Users.UseCases.Inpu
     {
         public Guid CreatedUserId { get; set; }
         public Guid ChatRoomId { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
         public string CreatedUserName { get; set; }
         public string Text { get; set; }
-        public CreateMessageInputBase(Guid createdUserId, Guid chatRoomId, DateTime createdOn, string createdUserName, string text)
+        public CreateMessageInputBase(Guid createdUserId, Guid chatRoomId, string createdUserName, string text)
         {
             CreatedUserId = createdUserId;
             ChatRoomId = chatRoomId;
-            CreatedOn = createdOn;
             CreatedUserName = createdUserName;
             Text = text;
         }
