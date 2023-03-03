@@ -70,14 +70,14 @@ namespace JobSity.Chatroom.Application.Shared.Identity
                     {
                         OnMessageReceived = context =>
                         {
-                            var accessToken = context.Request.Query["access_token"];
+                            var accessToken = context.Request.Headers.Authorization.FirstOrDefault();
+                            context.Token = accessToken;
 
                             // If the request is for our hub...
                             var path = context.HttpContext.Request.Path;
                             if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chat-room-hub"))
                             {
                                 // Read the token out of the query string
-                                context.Token = accessToken;
                             }
                             return Task.CompletedTask;
                         }
