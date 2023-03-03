@@ -10,10 +10,9 @@ namespace JobSity.Chatroom.Application.Shared.Chatrooms.Entities
         public Guid CreatedUserId { get; set; }
         public virtual List<ChatMessage> ChatMessages { get; set; } = new List<ChatMessage>();
         protected ChatRoom() { }
-        public ChatRoom(string name, DateTime createdOn, Guid createdUserId)
+        public ChatRoom(string name, Guid createdUserId)
         {
             Name = name;
-            CreatedOn = createdOn;
             CreatedUserId = createdUserId;
         }
     }
