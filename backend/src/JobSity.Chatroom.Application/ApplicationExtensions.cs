@@ -1,4 +1,4 @@
-﻿using JobSity.Chatroom.Application.Features.Chatroom.CreateMessage.DependencyInjection;
+﻿using JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.DependencyInjection;
 using JobSity.Chatroom.Application.Shared.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

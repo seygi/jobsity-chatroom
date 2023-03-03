@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using JobSity.Chatroom.Application.Features.Chatroom.ChatroomCreateMessage.UseCase;
+using JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.UseCase;
 using JobSity.Chatroom.Application.Shared.Validator.Validators;
 
-namespace JobSity.Chatroom.Application.Features.Chatroom.CreateMessage.Validators
+namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.Validators
 {
     internal class CreateMessageValidator : AbstractValidator<CreateMessageInput>
     {

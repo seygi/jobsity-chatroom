@@ -2,7 +2,7 @@
 using JobSity.Chatroom.Application.Shared.UseCase;
 using JobSity.Chatroom.Application.Shared.Validator;
 
-namespace JobSity.Chatroom.Application.Features.Chatroom.ChatroomCreateMessage.UseCase
+namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.UseCase
 {
     internal sealed class CreateMessageUseCase : IUseCase<CreateMessageInput, DefaultOutput>
     {
