@@ -5,7 +5,7 @@ using JobSity.Chatroom.Application.Shared.Validator;
 
 namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.UseCase
 {
-    internal sealed class CreateUserUseCase : IUseCase<CreateUserInput, DefaultOutput>
+    internal sealed class CreateUserUseCase : IUseCase<CreateUserInput, CreateUserOutput>
     {
         private readonly IValidatorService<CreateUserInput> _validatorService;
         private readonly IChatMessageService _chatMessageService;
@@ -16,14 +16,14 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.U
             _chatMessageService = chatMessageService;
         }
 
-        public async Task<DefaultOutput> ExecuteAsync(CreateUserInput input, CancellationToken cancellationToken)
+        public async Task<CreateUserOutput> ExecuteAsync(CreateUserInput input, CancellationToken cancellationToken)
         {
             if (!_validatorService.ValidateAndNotifyIfError(input))
-                return DefaultOutput.Default;
+                return CreateUserOutput.Empty;
 
             //await _chatMessageService.CreateMessageAsync(input, cancellationToken);
 
-            return DefaultOutput.Default;
+            return CreateUserOutput.Empty;
         }
     }
 }

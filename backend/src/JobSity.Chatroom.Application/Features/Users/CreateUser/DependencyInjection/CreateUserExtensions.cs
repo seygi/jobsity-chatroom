@@ -15,7 +15,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.D
         public static IServiceCollection AddCreateUser(this IServiceCollection services)
         {
             services.TryAddSingleton<IValidator<CreateUserInput>, CreateUserValidator>();
-            services.TryAddScoped<IUseCase<CreateUserInput, DefaultOutput>, CreateUserUseCase>();
+            services.TryAddScoped<IUseCase<CreateUserInput, CreateUserOutput>, CreateUserUseCase>();
 
             return services;
         }
