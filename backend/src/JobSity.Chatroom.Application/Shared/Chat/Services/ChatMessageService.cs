@@ -1,5 +1,4 @@
 ﻿using JobSity.Chatroom.Application.Shared.Chat.Repositories;
-using JobSity.Chatroom.Application.Shared.Notifications;
 using NetDevPack.Messaging;
 using XpInc.Security.FacialBiometrics.Application.Shared.Users.UseCases.Inputs;
 
@@ -13,7 +12,7 @@ namespace JobSity.Chatroom.Application.Shared.Chat.Services
             _chatMessageRepository = chatMessageRepository;
         }
 
-        public async Task CreateMessageAsync(CreateMessageInputBase input, CancellationToken cancellationToken)
+        public Task<int> CreateMessageAsync(CreateMessageInputBase input, CancellationToken cancellationToken)
         {
             var chatMessage = new ChatMessage(input.CreatedUserId, input.ChatRoomId, input.CreatedUserName, input.Text);
 
@@ -21,7 +20,7 @@ namespace JobSity.Chatroom.Application.Shared.Chat.Services
 
             _chatMessageRepository.Add(chatMessage);
 
-            await _chatMessageRepository.SaveChangesAsync();
+            return _chatMessageRepository.SaveChangesAsync();
         }
 
         //private RegisterModel CreateUnsuccessfulEnroll(CreateMessageInputBase input, EnrollResponse enrollResponse, string imagePath)

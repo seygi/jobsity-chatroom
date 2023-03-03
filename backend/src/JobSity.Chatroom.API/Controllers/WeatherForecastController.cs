@@ -22,7 +22,7 @@ namespace JobSity.Chatroom.API.Controllers
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get([FromServices]
-            IUseCase<CreateMessageInput, DefaultOutput> useCase,
+            IUseCase<CreateMessageInput, CreateMessageOutput> useCase,
             CancellationToken cancellationToken)
         {
             useCase.ExecuteAsync(CreateMessageInput.Create(Guid.NewGuid(), Guid.Parse("06ad6f1c-b733-4063-8e8a-243da610b942"), "fulano", "texto gigante" ), cancellationToken);

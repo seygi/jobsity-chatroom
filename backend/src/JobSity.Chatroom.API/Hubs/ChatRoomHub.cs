@@ -11,9 +11,9 @@ namespace JobSity.Chatroom.API.Hubs
     public class ChatRoomHub : Hub
     {
         private readonly IAspNetUser _aspNetUser;
-        private readonly IUseCase<CreateMessageInput, DefaultOutput> _createMessageUseCase;
+        private readonly IUseCase<CreateMessageInput, CreateMessageOutput> _createMessageUseCase;
 
-        public ChatRoomHub(IAspNetUser aspNetUser, IUseCase<CreateMessageInput, DefaultOutput> createMessageUseCase)
+        public ChatRoomHub(IAspNetUser aspNetUser, IUseCase<CreateMessageInput, CreateMessageOutput> createMessageUseCase)
         {
             _aspNetUser = aspNetUser;
             _createMessageUseCase = createMessageUseCase;

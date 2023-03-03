@@ -14,7 +14,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.D
         public static IServiceCollection AddCreateMessage(this IServiceCollection services)
         {
             services.TryAddSingleton<IValidator<CreateMessageInput>, CreateMessageValidator>();
-            services.TryAddScoped<IUseCase<CreateMessageInput, DefaultOutput>, CreateMessageUseCase>();
+            services.TryAddScoped<IUseCase<CreateMessageInput, CreateMessageOutput>, CreateMessageUseCase>();
 
             return services;
         }

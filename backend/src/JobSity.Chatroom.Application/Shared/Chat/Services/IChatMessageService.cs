@@ -4,6 +4,6 @@ namespace JobSity.Chatroom.Application.Shared.Chat.Services
 {
     public interface IChatMessageService
     {
-        Task CreateMessageAsync(CreateMessageInputBase input, CancellationToken cancellationToken);
+        Task<int> CreateMessageAsync(CreateMessageInputBase input, CancellationToken cancellationToken);
     }
 }
