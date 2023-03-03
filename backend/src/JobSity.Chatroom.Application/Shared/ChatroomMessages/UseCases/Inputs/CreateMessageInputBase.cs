@@ -1,19 +1,17 @@
-﻿using NetDevPack.Domain;
+﻿using JobSity.Chatroom.Application.Shared.UseCase;
+using System.Diagnostics.CodeAnalysis;
 
-namespace JobSity.Chatroom.Application.Shared.Chat
+namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.UseCases.Inputs
 {
-    public class ChatMessage : Entity, IAggregateRoot
+    [ExcludeFromCodeCoverage]
+    public abstract class CreateMessageInputBase : IInput
     {
         public Guid CreatedUserId { get; set; }
         public Guid ChatRoomId { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
         public string CreatedUserName { get; set; }
         public string Text { get; set; }
-        public ChatRoom ChatRoom { get; set; } = null!;
-
-        protected ChatMessage() { }
-
-        public ChatMessage(Guid createdUserId, Guid chatRoomId, string createdUserName, string text)
+        public CreateMessageInputBase(Guid createdUserId, Guid chatRoomId, string createdUserName, string text)
         {
             CreatedUserId = createdUserId;
             ChatRoomId = chatRoomId;

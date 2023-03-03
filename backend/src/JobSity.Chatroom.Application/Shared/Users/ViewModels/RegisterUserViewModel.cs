@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace JobSity.Chatroom.Application.Shared.Chat.ViewModels
+namespace JobSity.Chatroom.Application.Shared.Users.ViewModels
 {
     public class RegisterUserViewModel
     {

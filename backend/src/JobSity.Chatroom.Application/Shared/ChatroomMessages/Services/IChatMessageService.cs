@@ -1,6 +1,6 @@
-﻿using XpInc.Security.FacialBiometrics.Application.Shared.Users.UseCases.Inputs;
+﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.UseCases.Inputs;
 
-namespace JobSity.Chatroom.Application.Shared.Chat.Services
+namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
 {
     public interface IChatMessageService
     {

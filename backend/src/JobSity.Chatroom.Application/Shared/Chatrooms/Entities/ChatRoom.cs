@@ -1,6 +1,7 @@
-﻿using NetDevPack.Domain;
+﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
+using NetDevPack.Domain;
 
-namespace JobSity.Chatroom.Application.Shared.Chat
+namespace JobSity.Chatroom.Application.Shared.Chatrooms.Entities
 {
     public class ChatRoom : Entity, IAggregateRoot
     {

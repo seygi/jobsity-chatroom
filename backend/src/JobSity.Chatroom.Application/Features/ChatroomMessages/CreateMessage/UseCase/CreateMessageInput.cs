@@ -1,4 +1,4 @@
-﻿using XpInc.Security.FacialBiometrics.Application.Shared.Users.UseCases.Inputs;
+﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.UseCases.Inputs;
 
 namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.UseCase
 {

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using JobSity.Chatroom.Application.Shared.Chat;
-using JobSity.Chatroom.Application.Shared.Chat.ViewModels;
-using JobSityNETChallenge.Application.ViewModels;
+using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
+using JobSity.Chatroom.Application.Shared.ChatroomMessages.ViewModels;
+using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
+using JobSity.Chatroom.Application.Shared.Chatrooms.ViewModels;
 
 namespace JobSity.Chatroom.Application.Shared.AutoMapper
 {

@@ -1,4 +1,6 @@
-﻿namespace JobSity.Chatroom.Application.Shared.Chat.Repositories
+﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
+
+namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
 {
     public interface IChatMessageRepository
     {

@@ -1,4 +1,5 @@
-﻿using JobSity.Chatroom.Application.Shared.Chat;
+﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
+using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
 using JobSity.Chatroom.Application.Shared.Data.Postgre.Mappings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

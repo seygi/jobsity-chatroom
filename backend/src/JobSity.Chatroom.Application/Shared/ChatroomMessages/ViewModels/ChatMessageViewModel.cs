@@ -1,4 +1,4 @@
-﻿namespace JobSity.Chatroom.Application.Shared.Chat.ViewModels
+﻿namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.ViewModels
 {
     public class ChatMessageViewModel
     {

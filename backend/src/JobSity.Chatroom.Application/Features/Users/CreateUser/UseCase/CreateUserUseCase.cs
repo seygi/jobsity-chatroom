@@ -1,5 +1,5 @@
 ﻿using JobSity.Chatroom.Application.Features.Users.CreateUser.UseCase;
-using JobSity.Chatroom.Application.Shared.Chat.Services;
+using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
 using JobSity.Chatroom.Application.Shared.UseCase;
 using JobSity.Chatroom.Application.Shared.Validator;
 

@@ -1,4 +1,4 @@
-﻿namespace JobSityNETChallenge.Application.ViewModels
+﻿namespace JobSity.Chatroom.Application.Shared.Chatrooms.ViewModels
 {
     public class ChatRoomViewModel
     {

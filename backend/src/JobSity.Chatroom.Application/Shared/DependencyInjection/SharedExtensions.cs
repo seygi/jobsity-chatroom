@@ -1,6 +1,6 @@
 ﻿using JobSity.Chatroom.Application.Shared.AutoMapper;
-using JobSity.Chatroom.Application.Shared.Chat.Repositories;
-using JobSity.Chatroom.Application.Shared.Chat.Services;
+using JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories;
+using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
 using JobSity.Chatroom.Application.Shared.Configurations;
 using JobSity.Chatroom.Application.Shared.Data.Postgre;
 using JobSity.Chatroom.Application.Shared.Identity;

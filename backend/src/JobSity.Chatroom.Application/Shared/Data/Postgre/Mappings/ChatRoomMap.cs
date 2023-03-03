@@ -1,4 +1,4 @@
-﻿using JobSity.Chatroom.Application.Shared.Chat;
+﻿using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
