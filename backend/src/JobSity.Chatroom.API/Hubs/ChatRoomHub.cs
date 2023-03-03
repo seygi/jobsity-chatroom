@@ -1,4 +1,5 @@
 ﻿using JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.UseCase;
+using JobSity.Chatroom.Application.Features.Chatrooms.CreateRoom.UseCase;
 using JobSity.Chatroom.Application.Shared.UseCase;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
