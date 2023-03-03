@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.UseCases.Inputs
 {
     [ExcludeFromCodeCoverage]
-    public abstract class CreateMessageInputBase : IInput
+    public abstract class CreateMessageInputBase 
     {
         public Guid CreatedUserId { get; set; }
         public Guid ChatRoomId { get; set; }
