@@ -1,4 +1,5 @@
 ﻿using JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.DependencyInjection;
+using JobSity.Chatroom.Application.Features.Chatrooms.CreateRoom.DependencyInjection;
 using JobSity.Chatroom.Application.Features.Users.LoginUser.DependencyInjection;
 using JobSity.Chatroom.Application.Shared.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,8 @@ namespace JobSity.Chatroom.Application
                .AddShared(configuration)
                .AddCreateMessage()
                .AddCreateUser()
-               .AddLoginUser();
+               .AddLoginUser()
+               .AddCreateRoom();
 
             return services;
         }
