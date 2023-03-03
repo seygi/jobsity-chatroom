@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Chatrooms\" />
-    <Folder Include="Features\Users\" />
   </ItemGroup>
 
 </Project>

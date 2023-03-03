@@ -15,8 +15,8 @@ namespace JobSity.Chatroom.Application
         {
             services
                .AddShared(configuration)
-               .AddCreateMessage();
-            //   .AddGetSales()
+               .AddCreateMessage()
+               .AddCreateUser();
             //   .AddGetSellers();
 
             return services;
