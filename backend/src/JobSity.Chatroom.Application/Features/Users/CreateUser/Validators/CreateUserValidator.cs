@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using JobSity.Chatroom.Application.Features.Users.CreateUser.UseCase;
+using JobSity.Chatroom.Application.Features.Users.LoginUser.UseCase;
 
 namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.Validators
 {
