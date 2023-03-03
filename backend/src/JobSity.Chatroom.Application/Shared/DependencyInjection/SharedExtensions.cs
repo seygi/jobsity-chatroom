@@ -1,6 +1,7 @@
 ﻿using JobSity.Chatroom.Application.Shared.AutoMapper;
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories;
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
+using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
 using JobSity.Chatroom.Application.Shared.Configurations;
 using JobSity.Chatroom.Application.Shared.Data.Postgre;
 using JobSity.Chatroom.Application.Shared.Identity;
@@ -27,7 +28,8 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
                .AddAutoMapperConfiguration()
                .AddWebAppIdentityConfiguration(configuration)
                .AddApiIdentityConfiguration(configuration) // ASP.NET Identity Settings & JWT
-               .AddSaleDependencyInjections();
+               .AddChatMessageDependencyInjections()
+               .AddChatRoomDependencyInjections();
         }
 
         private static IServiceCollection AddConnectionStrings(this IServiceCollection services)
@@ -82,28 +84,21 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
                          options.UseNpgsql(connectionStrings.Postgres.GetConnectionString(),
                     b => b.MigrationsAssembly("JobSity.Chatroom.Application")));
 
-            // Default Identity configuration from NetDevPack.Identity
-            //services.AddIdentityConfiguration();
-            
             return services;
         }
-        
 
-        //public static void AddDatabaseConfiguration(this IServiceCollection services, IConfiguration configuration)
-        //{
-        //    if (services == null) throw new ArgumentNullException(nameof(services));
-
-        //    services.AddDbContext<DataContext>(options =>
-        //        options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
-        //    services.AddDbContext<EventStoreSqlContext>(options =>
-        //        options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-        //}
-
-        private static IServiceCollection AddSaleDependencyInjections(this IServiceCollection services)
+        private static IServiceCollection AddChatMessageDependencyInjections(this IServiceCollection services)
         {
             services.TryAddScoped<IChatMessageService, ChatMessageService>();
             services.TryAddScoped<IChatMessageRepository, ChatMessageRepository>();
+
+            return services;
+        }
+
+        private static IServiceCollection AddChatRoomDependencyInjections(this IServiceCollection services)
+        {
+            services.TryAddScoped<IChatRoomService, ChatRoomService>();
+            services.TryAddScoped<IChatRoomRepository, ChatRoomRepository>();
 
             return services;
         }
