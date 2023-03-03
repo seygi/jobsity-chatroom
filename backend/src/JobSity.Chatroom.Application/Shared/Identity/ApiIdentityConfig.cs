@@ -35,9 +35,7 @@ namespace JobSity.Chatroom.Application.Shared.Identity
                 .AddDefaultTokenProviders();
 
             // JWT configuration
-            services.AddJwtConfiguration(configuration, "AppSettings");
-
-            return services;
+            return services.AddJwtConfiguration(configuration, "AppSettings");
         }
 
         private static IServiceCollection AddJwtConfiguration(this IServiceCollection services, IConfiguration configuration, string appJwtSettingsKey = "AppJwtSettings")
@@ -46,7 +44,9 @@ namespace JobSity.Chatroom.Application.Shared.Identity
             if (configuration == null) throw new ArgumentException(nameof(configuration));
 
             var appSettingsSection = configuration.GetSection(appJwtSettingsKey);
-            services.Configure<AppJwtSettings>(appSettingsSection);
+
+            services.AddOptions<AppJwtSettings>()
+               .Configure<IConfiguration>((settings, configuration) => { configuration.GetSection(appJwtSettingsKey).Bind(settings); });
 
             var appSettings = appSettingsSection.Get<AppJwtSettings>();
 
