@@ -1,8 +1,7 @@
-﻿using JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom.UseCase;
-using JobSity.Chatroom.Application.Features.Chatrooms.GetAllRooms.UseCase;
+﻿using JobSity.Chatroom.Application.Features.Chatrooms.GetAllRooms.UseCase;
 using System.Text.Json.Serialization;
 
-namespace Hubla.Sales.API.Transport.V1.GetSales
+namespace JobSity.Chatroom.API.Transport.V1.GetAllRooms
 {
     public sealed class GetAllRoomsResponse
     {

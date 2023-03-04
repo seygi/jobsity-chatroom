@@ -1,5 +1,5 @@
-﻿using Hubla.Sales.API.Transport.V1.GetSales;
-using JobSity.Chatroom.API.Transport.V1.CreateRoom;
+﻿using JobSity.Chatroom.API.Transport.V1.CreateRoom;
+using JobSity.Chatroom.API.Transport.V1.GetAllRooms;
 using JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom.UseCase;
 using JobSity.Chatroom.Application.Features.Chatrooms.CreateRoom.UseCase;
 using JobSity.Chatroom.Application.Features.Chatrooms.GetAllRooms.UseCase;
