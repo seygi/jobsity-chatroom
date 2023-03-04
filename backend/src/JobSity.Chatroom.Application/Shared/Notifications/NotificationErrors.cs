@@ -4,7 +4,7 @@
     {
         private readonly IDictionary<string, IList<string>> _errorMessages = new Dictionary<string, IList<string>>();
 
-        public IDictionary<string, string[]> Errors => _errorMessages.ToDictionary(item => item.Key, item => item.Value.ToArray());
+        public IDictionary<string, string[]> errors => _errorMessages.ToDictionary(item => item.Key, item => item.Value.ToArray());
 
         public void Add(string key, string message)
         {

@@ -7,7 +7,7 @@ namespace JobSity.Chatroom.Application.Shared.Notifications
         private NotificationErrors _notifications;
         private HttpStatusCode _httpStatusCode;
 
-        public bool HasNotifications => _notifications.Errors.Any();
+        public bool HasNotifications => _notifications.errors.Any();
         public NotificationErrors Notifications => _notifications;
         public HttpStatusCode HttpStatusCode => _httpStatusCode;
 

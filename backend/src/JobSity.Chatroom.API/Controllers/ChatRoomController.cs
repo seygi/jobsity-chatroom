@@ -1,5 +1,6 @@
 ﻿using JobSity.Chatroom.API.Transport.V1.CreateRoom;
 using JobSity.Chatroom.API.Transport.V1.GetAllRooms;
+using JobSity.Chatroom.API.Transport.V1.GetMessagesRoom;
 using JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom.UseCase;
 using JobSity.Chatroom.Application.Features.Chatrooms.CreateRoom.UseCase;
 using JobSity.Chatroom.Application.Features.Chatrooms.GetAllRooms.UseCase;
@@ -38,6 +39,20 @@ namespace JobSity.Chatroom.API.Controllers
         {
             await useCase.ExecuteAsync(CreateRoomInput.Create(request.Name), cancellationToken);
             return Ok();
+        }
+
+        [HttpGet("{chatRoomId}/messages")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Get([FromRoute] Guid chatRoomId,
+            [FromServices] IUseCase<GetMessagesRoomInput, GetMessagesRoomListOutput> useCase,
+            CancellationToken cancellationToken)
+        {
+            var result = await useCase.ExecuteAsync(GetMessagesRoomInput.Create(chatRoomId), cancellationToken);
+
+            return Ok(GetMessagesRoomResponse.Create(result));
+
         }
     }
 }
