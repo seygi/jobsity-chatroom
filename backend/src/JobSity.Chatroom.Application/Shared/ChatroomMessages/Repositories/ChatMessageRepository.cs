@@ -19,9 +19,13 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
             DbSet.Add(customer);
         }
 
-        public async Task<IEnumerable<ChatMessage>> GetAllByChatRoomId(Guid chatRoomId)
+        public async Task<IEnumerable<ChatMessage>> GetTop50ByChatRoomId(Guid chatRoomId)
         {
-            return await DbSet.Where(p => p.ChatRoomId == chatRoomId).ToListAsync();
+            return await DbSet
+                    .Where(p => p.ChatRoomId == chatRoomId)
+                    .OrderByDescending(x=>x.CreatedOn)
+                    .Take(50)
+                    .ToListAsync();
         }
         public Task<int> SaveChangesAsync()
         {

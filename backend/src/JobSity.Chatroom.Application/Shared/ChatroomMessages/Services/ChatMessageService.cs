@@ -21,9 +21,9 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
 
             return _chatMessageRepository.SaveChangesAsync();
         }
-        public Task<IEnumerable<ChatMessage>> GetAllByChatRoomId(Guid chatRoomId, CancellationToken cancellationToken)
+        public Task<IEnumerable<ChatMessage>> GetTop50ByChatRoomId(Guid chatRoomId, CancellationToken cancellationToken)
         {
-            return _chatMessageRepository.GetAllByChatRoomId(chatRoomId);
+            return _chatMessageRepository.GetTop50ByChatRoomId(chatRoomId);
         }
     }
 }

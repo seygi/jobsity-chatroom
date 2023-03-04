@@ -4,8 +4,7 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
 {
     public interface IChatMessageRepository
     {
-        //Task<ChatMessage> GetById(Guid id);
-        Task<IEnumerable<ChatMessage>> GetAllByChatRoomId(Guid chatRoomId);
+        Task<IEnumerable<ChatMessage>> GetTop50ByChatRoomId(Guid chatRoomId);
         void Add(ChatMessage message);
         Task<int> SaveChangesAsync();
     }
