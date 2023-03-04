@@ -14,17 +14,6 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
             Db = context;
             DbSet = Db.Set<ChatMessage>();
         }
-
-        public async Task<ChatMessage> GetById(Guid id)
-        {
-            return await DbSet.FindAsync(id);
-        }
-
-        public async Task<IEnumerable<ChatMessage>> GetAll()
-        {
-            return await DbSet.ToListAsync();
-        }
-
         public void Add(ChatMessage customer)
         {
             DbSet.Add(customer);

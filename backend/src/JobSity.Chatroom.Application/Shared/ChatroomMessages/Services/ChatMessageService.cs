@@ -17,34 +17,13 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
         {
             var chatMessage = new ChatMessage(input.CreatedUserId, input.ChatRoomId, input.CreatedUserName, input.Text);
 
-            //chatMessage.AddDomainEvent(new ChatMessageCreatedEvent(chatMessage.Id, chatMessage.CreatedUserId, chatMessage.Text, chatMessage.CreatedOn));
-
             _chatMessageRepository.Add(chatMessage);
 
             return _chatMessageRepository.SaveChangesAsync();
         }
-
-        //private RegisterModel CreateUnsuccessfulEnroll(CreateMessageInputBase input, EnrollResponse enrollResponse, string imagePath)
-        //{
-        //    _notificationContext.Create(HttpStatusCode.OK, RegisterResult.Registered(false, enrollResponse.ScanResultBlob, enrollResponse.WasProcessed));
-
-        //    return RegisterModel.CreateUnsuccessfully(input.Document, _productContext.Id, input.Metadata, input.AntiFraudId, input.Brand, imagePath);
-        //}
-
-        //private async Task<(OperationResult, User)> AddOrUpdateUserAsync(User user, RegisterModel model)
-        //{
-        //    var date = DateTime.Now;
-
-        //    if (user.Exist())
-        //    {
-        //        user.Update(model.ProductId, model.UserStatus, model.StatusReason, string.Empty, model.Metadata, model.ImagePath, model.Brand);
-
-        //        return (await _userRepository.UpdateAsync(user), user);
-        //    }
-
-        //    user = User.Create(model.Document, model.ProductId, model.UserStatus, model.StatusReason, string.Empty, date, date, model.Metadata, model.ImagePath, model.Brand);
-
-        //    return (await _userRepository.SaveAsync(user), user);
-        //}
+        public Task<IEnumerable<ChatMessage>> GetAllByChatRoomId(Guid chatRoomId, CancellationToken cancellationToken)
+        {
+            return _chatMessageRepository.GetAllByChatRoomId(chatRoomId);
+        }
     }
 }
