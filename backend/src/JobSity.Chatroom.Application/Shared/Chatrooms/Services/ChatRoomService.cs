@@ -21,5 +21,10 @@ namespace JobSity.Chatroom.Application.Shared.Chatrooms.Services
 
             return _chatRoomRepository.SaveChangesAsync();
         }
+
+        public Task<IEnumerable<ChatRoom>> GetAllAsync(CancellationToken cancellationToken)
+        {
+            return _chatRoomRepository.GetAllAsync();
+        }
     }
 }

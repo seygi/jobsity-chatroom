@@ -16,7 +16,7 @@ namespace JobSity.Chatroom.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> CreateUser([FromBody] RegisterUser newUser,
+        public async Task<IActionResult> CreateUser([FromBody] RegisterUser newUser,
             [FromServices]IUseCase<CreateUserInput, CreateUserOutput> useCase,
             CancellationToken cancellationToken)
         {

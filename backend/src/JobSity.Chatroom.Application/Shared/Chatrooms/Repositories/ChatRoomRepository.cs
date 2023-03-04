@@ -19,7 +19,11 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
         {
             DbSet.Add(customer);
         }
-       
+        public async Task<IEnumerable<ChatRoom>> GetAllAsync()
+        {
+            return await DbSet.ToListAsync();
+        }
+
         public Task<int> SaveChangesAsync()
         {
             return Db.SaveChangesAsync();
