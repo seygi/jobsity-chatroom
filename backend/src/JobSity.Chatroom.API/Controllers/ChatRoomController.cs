@@ -4,6 +4,7 @@ using JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom.Use
 using JobSity.Chatroom.Application.Features.Chatrooms.CreateRoom.UseCase;
 using JobSity.Chatroom.Application.Features.Chatrooms.GetAllRooms.UseCase;
 using JobSity.Chatroom.Application.Shared.UseCase;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +12,7 @@ namespace JobSity.Chatroom.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ChatRoomController : ControllerBase
     {
         [HttpGet()]

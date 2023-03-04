@@ -58,7 +58,7 @@ namespace JobSity.Chatroom.API
                 c.AllowAnyMethod();
                 c.AllowAnyOrigin();
                 c.AllowCredentials();
-                c.WithOrigins("http://localhost:4200");
+                c.WithOrigins("http://localhost:4200", "http://localhost:8080");
             });
 
             app.UseAuthConfiguration();
