@@ -1,9 +1,8 @@
 ﻿using FluentAssertions;
-using JobSity.Chatroom.API.Transport.V1.CreateRoom;
 
-namespace JobSity.Chatroom.Tests.Unit.WebApi.Transport.V1.CreateRoom
+namespace JobSity.Chatroom.API.Transport.V1.GetAllRooms
 {
-    public class CreateRoomRequestTest
+    public sealed class GetAllRoomsResponseTest
     {
         [Theory(DisplayName = "Should Create Object")]
         [InlineData(default)]
@@ -12,7 +11,10 @@ namespace JobSity.Chatroom.Tests.Unit.WebApi.Transport.V1.CreateRoom
         public void ShouldCreateObject(string name)
         {
             // arrange - act
-            var result = new CreateRoomRequest(name);
+            var guid = Guid.NewGuid();
+
+            var result = new GetAllRoomsResponse(guid, name);
+            result.Id.Should().Be(guid);
             result.Name.Should().Be(name);
         }
     }
