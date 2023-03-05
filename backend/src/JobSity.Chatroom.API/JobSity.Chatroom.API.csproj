@@ -21,4 +21,10 @@
     <ProjectReference Include="..\JobSity.Chatroom.Application\JobSity.Chatroom.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
