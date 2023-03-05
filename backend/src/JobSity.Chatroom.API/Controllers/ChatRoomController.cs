@@ -47,11 +47,15 @@ namespace JobSity.Chatroom.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetMessages([FromRoute] Guid chatRoomId, [FromQuery] DateTime? lastMessageTime,
+        public async Task<IActionResult> GetMessages([FromRoute] Guid chatRoomId, [FromQuery] string? lastMessageTime,
             [FromServices] IUseCase<GetMessagesRoomInput, GetMessagesRoomListOutput> useCase,
             CancellationToken cancellationToken)
         {
-            var result = await useCase.ExecuteAsync(GetMessagesRoomInput.Create(chatRoomId, lastMessageTime), cancellationToken);
+            DateTime? date = null;
+            if (lastMessageTime != null)
+                date = DateTime.ParseExact(lastMessageTime, "yyyy-MM-dd'T'HH:mm:ss.fffffff", System.Globalization.CultureInfo.InvariantCulture);
+
+            var result = await useCase.ExecuteAsync(GetMessagesRoomInput.Create(chatRoomId, date), cancellationToken);
 
             return Ok(GetMessagesRoomResponse.Create(result));
 

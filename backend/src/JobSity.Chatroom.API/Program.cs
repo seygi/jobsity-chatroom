@@ -25,6 +25,9 @@ namespace JobSity.Chatroom.API
             builder.Services.AddControllers(options =>
             {
                 options.Filters.Add<NotificationFilter>();
+            }).AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new Configurations.DateTimeConverter());
             });
 
             builder.Services.AddEndpointsApiExplorer();
