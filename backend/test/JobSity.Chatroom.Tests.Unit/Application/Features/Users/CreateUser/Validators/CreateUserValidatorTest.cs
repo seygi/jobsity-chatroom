@@ -27,7 +27,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Features.Users.CreateUser.Vali
         [Fact]
         public void Should_Return_True_When_Has_All_Correct_Data()
         {
-            var model = CreateUserInput.Create("", "123456", "123456");
+            var model = CreateUserInput.Create("some@email.com", "123456", "123456");
             var result = _validator.Validate(model);
 
             result.IsValid.Should().BeTrue();
