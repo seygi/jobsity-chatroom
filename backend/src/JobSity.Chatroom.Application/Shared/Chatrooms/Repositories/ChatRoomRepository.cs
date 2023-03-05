@@ -28,11 +28,5 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
         {
             return Db.SaveChangesAsync();
         }
-
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
     }
-
 }
