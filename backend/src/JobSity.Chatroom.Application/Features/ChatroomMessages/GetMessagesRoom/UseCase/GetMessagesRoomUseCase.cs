@@ -27,7 +27,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom
             var messages = await _chatMessageService.GetTop50ByChatRoomId(input.ChatRoomId, cancellationToken);
 
             if (input.LastMessageTime != null)
-                messages = messages.Where(x => x.CreatedOn > input.LastMessageTime.Value.ToLocalTime());
+                messages = messages.Where(x => x.CreatedOn > input.LastMessageTime.Value);
 
             if (messages.Any())
                 return GetMessagesRoomListOutput.Success(messages.OrderByDescending(x => x.CreatedOn));

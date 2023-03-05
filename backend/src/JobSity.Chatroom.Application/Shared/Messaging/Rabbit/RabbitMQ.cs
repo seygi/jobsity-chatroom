@@ -62,6 +62,13 @@ namespace JobSity.Chatroom.Application.Shared.Messaging.Rabbit
         public Task SubscribeAsync<T>(Func<T, Task> handler, string queueName) where T : class
         {
             var consumer = new EventingBasicConsumer(_channel);
+
+            _channel.QueueDeclare(queue: queueName,
+                                durable: false,
+                                exclusive: false,
+                                autoDelete: false,
+                                arguments: null);
+
             consumer.Received += async (sender, ea) =>
             {
                 var message = Encoding.UTF8.GetString(ea.Body.ToArray());
