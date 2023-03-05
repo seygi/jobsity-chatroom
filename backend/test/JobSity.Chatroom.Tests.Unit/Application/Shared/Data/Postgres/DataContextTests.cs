@@ -1,7 +1,8 @@
 ﻿using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
+using JobSity.Chatroom.Application.Shared.Data.Postgres;
 using Microsoft.EntityFrameworkCore;
 
-namespace JobSity.Chatroom.Application.Shared.Data.Postgres
+namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Data.Postgres
 {
     public class DataContextTests : IDisposable
     {

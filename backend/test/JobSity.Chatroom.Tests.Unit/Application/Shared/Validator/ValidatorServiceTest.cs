@@ -6,7 +6,6 @@ using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.Validator;
 using NSubstitute;
 using System.Net;
-// ReSharper disable TemplateIsNotCompileTimeConstantProblem
 
 namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Validator
 {

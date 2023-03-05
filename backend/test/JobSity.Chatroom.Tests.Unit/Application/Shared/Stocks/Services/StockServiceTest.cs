@@ -1,11 +1,12 @@
 ﻿using JobSity.Chatroom.Application.Shared.Messaging;
 using JobSity.Chatroom.Application.Shared.Stocks.Entities;
 using JobSity.Chatroom.Application.Shared.Stocks.Model;
+using JobSity.Chatroom.Application.Shared.Stocks.Services;
 using JobSity.Chatroom.Tests.Unit;
 using NSubstitute;
 using System.Net;
 
-namespace JobSity.Chatroom.Application.Shared.Stocks.Services
+namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Stocks.Services
 {
     public class StockServiceTest
     {

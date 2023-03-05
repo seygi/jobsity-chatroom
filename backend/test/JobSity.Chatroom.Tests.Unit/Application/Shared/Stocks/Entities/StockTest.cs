@@ -1,4 +1,6 @@
-﻿namespace JobSity.Chatroom.Application.Shared.Stocks.Entities
+﻿using JobSity.Chatroom.Application.Shared.Stocks.Entities;
+
+namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Stocks.Entities
 {
     public class StockTest
     {
