@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.Application.Features.Chatrooms.GetAllRooms.UseCase
 {
-    [ExcludeFromCodeCoverage]
     public sealed class GetAllRoomsListOutput : IOutput, IEnumerable<GetAllRoomsOutput>
     {
         private readonly IList<GetAllRoomsOutput> _roomsOutput;
