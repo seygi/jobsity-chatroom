@@ -2,7 +2,7 @@
 
 namespace JobSity.Chatroom.Tests.Unit.Application.Features.Users.LoginUser.UseCase
 {
-    public sealed class LoginUserInputTest
+    public class LoginUserInputTest
     {
         [Fact]
         public void CreateLoginUserInput_ShouldCreate_ValidLoginUserInput()
