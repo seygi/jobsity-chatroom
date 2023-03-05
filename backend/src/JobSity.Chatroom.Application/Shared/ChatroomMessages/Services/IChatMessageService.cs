@@ -7,5 +7,7 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
     {
         Task<int> CreateMessageAsync(CreateMessageInputBase input, CancellationToken cancellationToken);
         Task<IEnumerable<ChatMessage>> GetTop50ByChatRoomId(Guid chatRoomId, CancellationToken cancellationToken);
+        Task EnqueueMessageToInsertAsync(ChatMessage message, CancellationToken cancellationToken);
+        Task SubscribeAsync(Func<ChatMessage, Task> handler);
     }
 }
