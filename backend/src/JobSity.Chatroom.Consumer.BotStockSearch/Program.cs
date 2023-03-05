@@ -2,9 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.Consumer.BotStockSearch
 {
+    [ExcludeFromCodeCoverage]
     internal class Program
     {
         static void Main(string[] args)
@@ -22,7 +24,7 @@ namespace JobSity.Chatroom.Consumer.BotStockSearch
                     {
                         services.AddSingleton(configuration);
                         services.AddApplication(configuration);
-                        services.AddHostedService<Consumer>();
+                        services.AddHostedService<BotStockSearchConsumer>();
                     });
         }
 

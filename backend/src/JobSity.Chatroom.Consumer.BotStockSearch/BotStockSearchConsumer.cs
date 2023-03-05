@@ -9,14 +9,14 @@ using RabbitMQ.Client.Events;
 
 namespace JobSity.Chatroom.Consumer.BotStockSearch
 {
-    public class Consumer : IHostedService
+    public class BotStockSearchConsumer : IHostedService
     {
         private readonly string _botToken;
         private readonly IUseCase<DefaultInput, SearchStockOutput> _stockValueuseCase;
         private readonly IUseCase<SyncBotMessagesInput, SyncBotMessagesOutput> _syncMessagesUseCase;
         private HubConnection _hubConnection;
 
-        public Consumer(IUseCase<DefaultInput, SearchStockOutput> stockValueuseCase, IUseCase<SyncBotMessagesInput, SyncBotMessagesOutput> syncMessagesUseCase, ITokenService tokenService)
+        public BotStockSearchConsumer(IUseCase<DefaultInput, SearchStockOutput> stockValueuseCase, IUseCase<SyncBotMessagesInput, SyncBotMessagesOutput> syncMessagesUseCase, ITokenService tokenService)
         {
             _stockValueuseCase = stockValueuseCase;
             _syncMessagesUseCase = syncMessagesUseCase;
