@@ -5,7 +5,9 @@ using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
 using JobSity.Chatroom.Application.Shared.Configurations;
 using JobSity.Chatroom.Application.Shared.Data.Postgre;
 using JobSity.Chatroom.Application.Shared.Identity;
+using JobSity.Chatroom.Application.Shared.Messaging.RabbitMQ;
 using JobSity.Chatroom.Application.Shared.Notifications;
+using JobSity.Chatroom.Application.Shared.Stocks.Services;
 using JobSity.Chatroom.Application.Shared.Validator;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,13 +25,16 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
             return services
                .AddConnectionStrings()
                .AddPostgres(configuration) // Setting DBContexts
+               .AddRabbitMQ(configuration)
                .AddValidatorService()
                .AddNotificationDependencyInjections()
                .AddAutoMapperConfiguration()
                .AddWebAppIdentityConfiguration(configuration)
                .AddApiIdentityConfiguration(configuration) // ASP.NET Identity Settings & JWT
                .AddChatMessageDependencyInjections()
-               .AddChatRoomDependencyInjections();
+               .AddChatRoomDependencyInjections()
+               .AddStockDependencyInjections()
+               .AddBotDependencyInjections();
         }
 
         private static IServiceCollection AddConnectionStrings(this IServiceCollection services)
@@ -39,7 +44,7 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
 
             return services;
         }
-        
+
         private static IServiceCollection AddPostgres(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionStrings = configuration.GetSection("ConnectionStrings").Get<ConnectionStrings>();
@@ -64,7 +69,7 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
 
             return services;
         }
-        
+
         public static IServiceCollection AddAutoMapperConfiguration(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
@@ -87,6 +92,13 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
             return services;
         }
 
+        public static IServiceCollection AddRabbitMQ(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.TryAddScoped<Messaging.IBus, Messaging.RabbitMQ.RabbitMQ>();
+
+            return services;
+        }
+
         private static IServiceCollection AddChatMessageDependencyInjections(this IServiceCollection services)
         {
             services.TryAddScoped<IChatMessageService, ChatMessageService>();
@@ -99,6 +111,24 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
         {
             services.TryAddScoped<IChatRoomService, ChatRoomService>();
             services.TryAddScoped<IChatRoomRepository, ChatRoomRepository>();
+
+            return services;
+        }
+
+        private static IServiceCollection AddStockDependencyInjections(this IServiceCollection services)
+        {
+            services.TryAddScoped<IStockService, StockService>();
+            services.AddHttpClient<IStockService, StockService>(client =>
+            {
+                client.BaseAddress = new Uri("https://stooq.com/q/l/");
+            });
+
+            return services;
+        }
+
+        private static IServiceCollection AddBotDependencyInjections(this IServiceCollection services)
+        {
+            services.TryAddScoped<ITokenService, TokenService>();
 
             return services;
         }
