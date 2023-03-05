@@ -2,7 +2,6 @@ using JobSity.Chatroom.API.Configurations;
 using JobSity.Chatroom.API.Filters;
 using JobSity.Chatroom.API.Hubs;
 using JobSity.Chatroom.Application;
-using MediatR;
 using NetDevPack.Identity.User;
 
 namespace JobSity.Chatroom.API
@@ -36,9 +35,6 @@ namespace JobSity.Chatroom.API
             builder.Services.AddAspNetUserConfiguration();
 
             builder.Services.AddSwaggerConfiguration();
-
-            // Adding MediatR for Domain Events and Notifications
-            builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 
             var app = builder.Build();
 

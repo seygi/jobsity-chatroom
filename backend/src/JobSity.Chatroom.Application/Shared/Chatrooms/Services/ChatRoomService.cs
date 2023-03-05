@@ -5,7 +5,7 @@ using NetDevPack.Messaging;
 
 namespace JobSity.Chatroom.Application.Shared.Chatrooms.Services
 {
-    public class ChatRoomService : CommandHandler, IChatRoomService
+    public class ChatRoomService : IChatRoomService
     {
         private readonly IChatRoomRepository _chatRoomRepository;
         public ChatRoomService(IChatRoomRepository chatRoomRepository)

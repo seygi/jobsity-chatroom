@@ -1,11 +1,9 @@
-﻿using JobSity.Chatroom.Application.Shared.AutoMapper;
-using JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories;
+﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories;
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
 using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
 using JobSity.Chatroom.Application.Shared.Configurations;
 using JobSity.Chatroom.Application.Shared.Data.Postgre;
 using JobSity.Chatroom.Application.Shared.Identity;
-using JobSity.Chatroom.Application.Shared.Messaging.RabbitMQ;
 using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.Stocks.Services;
 using JobSity.Chatroom.Application.Shared.Validator;
@@ -28,7 +26,6 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
                .AddRabbitMQ(configuration)
                .AddValidatorService()
                .AddNotificationDependencyInjections()
-               .AddAutoMapperConfiguration()
                .AddWebAppIdentityConfiguration(configuration)
                .AddApiIdentityConfiguration(configuration) // ASP.NET Identity Settings & JWT
                .AddChatMessageDependencyInjections()
@@ -66,15 +63,6 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
         private static IServiceCollection AddNotificationDependencyInjections(this IServiceCollection services)
         {
             services.TryAddScoped<INotificationContext, NotificationContext>();
-
-            return services;
-        }
-
-        public static IServiceCollection AddAutoMapperConfiguration(this IServiceCollection services)
-        {
-            if (services == null) throw new ArgumentNullException(nameof(services));
-
-            services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
 
             return services;
         }

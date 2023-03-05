@@ -6,7 +6,7 @@ using NetDevPack.Messaging;
 
 namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
 {
-    public class ChatMessageService : CommandHandler, IChatMessageService
+    public class ChatMessageService : IChatMessageService
     {
         private readonly IChatMessageRepository _chatMessageRepository;
         private readonly string _messagesQueueName = "messagesQueue";
