@@ -1,18 +1,15 @@
-﻿using JobSity.Chatroom.Application.Features.Users.CreateUser.UseCase;
-using JobSity.Chatroom.Application.Shared.Configurations;
-using JobSity.Chatroom.Application.Shared.Notifications;
+﻿using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.UseCase;
 using JobSity.Chatroom.Application.Shared.Users.UseCases;
 using JobSity.Chatroom.Application.Shared.Validator;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using NetDevPack.Identity.Jwt;
-using NetDevPack.Identity.Model;
 using System.Net;
 
 namespace JobSity.Chatroom.Application.Features.Users.LoginUser.UseCase
 {
-    internal sealed class LoginUserUseCase : UserUseCase, IUseCase<LoginUserInput, LoginUserOutput>
+    internal sealed class LoginUserUseCase : UserUseCaseBase, IUseCase<LoginUserInput, LoginUserOutput>
     {
         private readonly IValidatorService<LoginUserInput> _validatorService;
         private readonly INotificationContext _notificationContext;

@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using NetDevPack.Identity.Jwt;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.Application.Shared.Users.UseCases
 {
-    public abstract class UserUseCase
+    [ExcludeFromCodeCoverage]
+    public abstract class UserUseCaseBase
     {
         private readonly IOptions<AppJwtSettings> _appJwtSettings;
         public readonly UserManager<IdentityUser> _userManager;
 
-        protected UserUseCase(IOptions<AppJwtSettings> appJwtSettings, UserManager<IdentityUser> userManager)
+        protected UserUseCaseBase(IOptions<AppJwtSettings> appJwtSettings, UserManager<IdentityUser> userManager)
         {
             _appJwtSettings = appJwtSettings;
             _userManager = userManager;

@@ -1,6 +1,4 @@
 ﻿using JobSity.Chatroom.Application.Features.Users.CreateUser.UseCase;
-using JobSity.Chatroom.Application.Features.Users.LoginUser.UseCase;
-using JobSity.Chatroom.Application.Shared.Configurations;
 using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.UseCase;
 using JobSity.Chatroom.Application.Shared.Users.UseCases;
@@ -12,7 +10,7 @@ using System.Net;
 
 namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.UseCase
 {
-    internal sealed class CreateUserUseCase : UserUseCase, IUseCase<CreateUserInput, CreateUserOutput>
+    internal sealed class CreateUserUseCase : UserUseCaseBase, IUseCase<CreateUserInput, CreateUserOutput>
     {
         private readonly IValidatorService<CreateUserInput> _validatorService;
         private readonly INotificationContext _notificationContext;
