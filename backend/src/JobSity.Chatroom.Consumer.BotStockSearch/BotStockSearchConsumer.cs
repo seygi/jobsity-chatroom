@@ -23,7 +23,7 @@ namespace JobSity.Chatroom.Consumer.BotStockSearch
             _botToken = tokenService.GenerateBotToken();
 
             _hubConnection = new HubConnectionBuilder()
-                .WithUrl($"https://localhost:7154/chat-room-hub/?token={_botToken}", options =>
+                .WithUrl($"http://localhost:5111/chat-room-hub/?token={_botToken}", options =>
                 {
                     options.AccessTokenProvider = () => Task.FromResult(_botToken);
                 })
