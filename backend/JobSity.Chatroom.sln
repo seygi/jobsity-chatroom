@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSity.Chatroom.API", "src\JobSity.Chatroom.API\JobSity.Chatroom.API.csproj", "{9A8754E2-BF48-4273-9902-12E68BEBE3B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.API", "src\JobSity.Chatroom.API\JobSity.Chatroom.API.csproj", "{9A8754E2-BF48-4273-9902-12E68BEBE3B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2E1CE8B6-82D6-4168-9DF2-BE301FFD194D}"
 EndProject
@@ -17,7 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer", "Producer", "{EA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1D9FFB72-DD57-4C41-9710-29124F96DA04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSity.Chatroom.Application", "src\JobSity.Chatroom.Application\JobSity.Chatroom.Application.csproj", "{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.Application", "src\JobSity.Chatroom.Application\JobSity.Chatroom.Application.csproj", "{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSity.Chatroom.Consumer.BotStockSearch", "src\JobSity.Chatroom.Consumer.BotStockSearch\JobSity.Chatroom.Consumer.BotStockSearch.csproj", "{493CA225-75BD-4BA6-803C-B91843BFC509}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{493CA225-75BD-4BA6-803C-B91843BFC509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{493CA225-75BD-4BA6-803C-B91843BFC509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{493CA225-75BD-4BA6-803C-B91843BFC509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{493CA225-75BD-4BA6-803C-B91843BFC509}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{68799472-FF78-4377-BAEF-406AA566BA9E} = {2E1CE8B6-82D6-4168-9DF2-BE301FFD194D}
 		{EAEEFF75-E222-4C36-91F0-729BD50D8AA9} = {2E1CE8B6-82D6-4168-9DF2-BE301FFD194D}
 		{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4} = {00D469BA-2B14-4E24-8A69-728B9F6C2539}
+		{493CA225-75BD-4BA6-803C-B91843BFC509} = {68799472-FF78-4377-BAEF-406AA566BA9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EA175FC-BEDE-4F9C-94C6-C99D011A0AE9}
