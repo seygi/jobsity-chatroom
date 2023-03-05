@@ -1,5 +1,4 @@
 ﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
-using JobSity.Chatroom.Application.Shared.ChatroomMessages.ViewModels;
 using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.UseCase;
 using JobSity.Chatroom.Application.Shared.Validator;
@@ -28,7 +27,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom
             var messages = await _chatMessageService.GetTop50ByChatRoomId(input.ChatRoomId, cancellationToken);
 
             if (input.LastMessageTime != null)
-                messages = messages.Where(x => x.CreatedOn > input.LastMessageTime);
+                messages = messages.Where(x => x.CreatedOn > input.LastMessageTime.Value.ToLocalTime());
 
             if (messages.Any())
                 return GetMessagesRoomListOutput.Success(messages.OrderByDescending(x => x.CreatedOn));
