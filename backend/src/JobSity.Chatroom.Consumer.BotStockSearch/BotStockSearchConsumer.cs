@@ -33,13 +33,13 @@ namespace JobSity.Chatroom.Consumer.BotStockSearch
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             await _hubConnection.StartAsync();
-            _stockValueuseCase.ExecuteAsync(DefaultInput.Default, CancellationToken.None);
+            await _stockValueuseCase.ExecuteAsync(DefaultInput.Default, CancellationToken.None);
 
             var sendToHub = SyncBotMessagesInput.Create(async (qMsg) => {
                 await _hubConnection.InvokeAsync("SendMessage", qMsg.ChatRoomId, qMsg.Text);
             });
 
-            _syncMessagesUseCase.ExecuteAsync(sendToHub, CancellationToken.None);
+            await _syncMessagesUseCase.ExecuteAsync(sendToHub, CancellationToken.None);
         }
 
         public Task StopAsync(CancellationToken cancellationToken)

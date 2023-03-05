@@ -85,20 +85,6 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
         public static IServiceCollection AddRabbitMQ(this IServiceCollection services, IConfiguration configuration)
         {
             services.TryAddScoped<Messaging.IBus, Messaging.Rabbit.RabbitMQ>();
-
-            var connectionStrings = configuration.GetSection("ConnectionStrings").Get<ConnectionStrings>();
-
-            var factory = new ConnectionFactory()
-            {
-                UserName = connectionStrings.RabbitMQ.User,
-                Password = connectionStrings.RabbitMQ.Password,
-                HostName = connectionStrings.RabbitMQ.Host
-            };
-            var _connection = factory.CreateConnection();
-            var _channel = _connection.CreateModel();
-            services.TryAddScoped<IModel>();
-
-
             return services;
         }
 
