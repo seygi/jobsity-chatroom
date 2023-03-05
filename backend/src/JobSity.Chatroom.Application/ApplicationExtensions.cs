@@ -10,7 +10,9 @@ using JobSity.Chatroom.Application.Shared.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("JobSity.Chatroom.Tests.Unit")]
 namespace JobSity.Chatroom.Application
 {
     [ExcludeFromCodeCoverage]

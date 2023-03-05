@@ -33,10 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\JobSity.Chatroom.API\JobSity.Chatroom.API.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Application\Features\" />
+    <ProjectReference Include="..\..\src\JobSity.Chatroom.Application\JobSity.Chatroom.Application.csproj" />
   </ItemGroup>
 
 </Project>
