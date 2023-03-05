@@ -3,10 +3,12 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace JobSity.Chatroom.Application.Shared.Messaging.RabbitMQ
+namespace JobSity.Chatroom.Application.Shared.Messaging.Rabbit
 {
+    [ExcludeFromCodeCoverage]
     public class RabbitMQ : IBus
     {
         private readonly Configurations.Bus.RabbitMQ _rabbitMQ;
