@@ -13,15 +13,13 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="NetDevPack" Version="6.1.0" />
     <PackageReference Include="NetDevPack.Identity" Version="7.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Chatrooms\GetRoom\" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
   </ItemGroup>
 
 </Project>
