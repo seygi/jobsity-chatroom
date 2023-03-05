@@ -23,8 +23,8 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
         [Fact]
         public async Task GetAllAsync_ReturnsAllMessages()
         {
-            var chatRoomId = Guid.NewGuid();
             // Arrange
+            var chatRoomId = Guid.NewGuid();
             var expectedRooms = new List<ChatMessage>
             {
                 new ChatMessage(Guid.NewGuid(), chatRoomId, "Test User 1", "Test message 1"),
