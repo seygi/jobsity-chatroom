@@ -2,22 +2,16 @@
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories;
 using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
 using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
-using JobSity.Chatroom.Application.Shared.Chatrooms.UseCases.Inputs;
-using NetDevPack.Messaging;
 using NSubstitute;
 
 namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Chatrooms.Services
 {
     public class ChatRoomServiceTest
     {
-        private readonly IChatRoomRepository _chatRoomRepositoryMock;
-        private readonly IChatRoomService _chatRoomService;
-
         public ChatRoomServiceTest()
         {
-            _chatRoomRepositoryMock = Substitute.For<IChatRoomRepository>();
-            _chatRoomService = new ChatRoomService(_chatRoomRepositoryMock);
         }
+
         [Fact]
         public async Task GetAllAsync_ReturnsAllRooms()
         {

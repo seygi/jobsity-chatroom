@@ -33,7 +33,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Chatrooms.Repositories
 
             // Act
             _chatRoomRepository.Add(chatRoom);
-            _chatRoomRepository.SaveChangesAsync();
+            await _chatRoomRepository.SaveChangesAsync();
 
             // Assert
             var allChatRooms = await _chatRoomRepository.GetAllAsync();
@@ -50,7 +50,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Chatrooms.Repositories
             var chatRoom = new ChatRoom("Test Room", Guid.NewGuid());
 
             _chatRoomRepository.Add(chatRoom);
-            _chatRoomRepository.SaveChangesAsync();
+            await _chatRoomRepository.SaveChangesAsync();
             var chatRoomId = chatRoom.Id;
 
             // Act
