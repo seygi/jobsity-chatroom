@@ -9,7 +9,19 @@
         public decimal High { get; set; }
         public decimal Low { get; set; }
         public decimal Close { get; set; }
-        public decimal Volume { get; set; }
-        public static StockResponse Empty => new();
+        public int Volume { get; set; }
+        
+        public StockResponse(string symbol, DateTime date, TimeSpan time, decimal open, decimal high, decimal low, decimal close, int volume)
+        {
+            Symbol = symbol;
+            Date = date;
+            Time = time;
+            Open = open;
+            High = high;
+            Low = low;
+            Close = close;
+            Volume = volume;
+        }
+        public static StockResponse Empty => new(default, default, default, default, default, default, default, default);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using JobSity.Chatroom.Application.Shared.Messaging;
 using JobSity.Chatroom.Application.Shared.Stocks.Entities;
 using JobSity.Chatroom.Application.Shared.Stocks.Model;
+using System.Globalization;
 
 namespace JobSity.Chatroom.Application.Shared.Stocks.Services
 {
@@ -24,6 +25,7 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
         {
             await _bus.SubscribeAsync(handler, _stockQueueName);
         }
+
         public async Task<StockResponse> GetStockAsync(string stockCode, CancellationToken cancellationToken)
         {
             var uri = $"?s={stockCode}&f=sd2t2ohlcv&h&e=csv";
@@ -34,20 +36,18 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
 
             string body = await response.Content.ReadAsStringAsync();
             var data = body.Substring(body.IndexOf(Environment.NewLine, StringComparison.Ordinal) + 2);
-            var processedArray = data.Split(',');
-            var stock = new StockResponse()
-            {
-                Symbol = processedArray[0],
-                Date = !processedArray[1].Contains("N/D") ? Convert.ToDateTime(processedArray[1]) : default,
-                Time = !processedArray[2].Contains("N/D") ? Convert.ToDateTime(processedArray[2]).TimeOfDay : default,
-                Open = !processedArray[3].Contains("N/D") ? Convert.ToDecimal(processedArray[3]) / 100 : default,
-                High = !processedArray[4].Contains("N/D") ? Convert.ToDecimal(processedArray[4]) / 100 : default,
-                Low = !processedArray[5].Contains("N/D") ? Convert.ToDecimal(processedArray[5]) / 100 : default,
-                Close = !processedArray[6].Contains("N/D") ? Convert.ToDecimal(processedArray[6]) / 100 : default,
-                Volume = !processedArray[7].Contains("N/D") ? Convert.ToDecimal(processedArray[7]) / 100 : default,
-            };
             
-            return stock;
+            var processedArray = data.Split(',');
+            string symbol = processedArray[0];
+            DateTime date = !processedArray[1].Contains("N/D") ? Convert.ToDateTime(processedArray[1]) : default;
+            TimeSpan time = !processedArray[2].Contains("N/D") ? Convert.ToDateTime(processedArray[2]).TimeOfDay : default;
+            decimal open = !processedArray[3].Contains("N/D") ? Convert.ToDecimal(processedArray[3], CultureInfo.InvariantCulture) : default;
+            decimal high = !processedArray[4].Contains("N/D") ? Convert.ToDecimal(processedArray[4], CultureInfo.InvariantCulture) : default;
+            decimal low = !processedArray[5].Contains("N/D") ? Convert.ToDecimal(processedArray[5], CultureInfo.InvariantCulture) : default;
+            decimal close = !processedArray[6].Contains("N/D") ? Convert.ToDecimal(processedArray[6], CultureInfo.InvariantCulture) : default;
+            int volume = !processedArray[7].Contains("N/D") ? Convert.ToInt32(processedArray[7]) : default;
+
+            return new StockResponse(symbol, date, time, open, high, low, close, volume);
         }
     }
 }
