@@ -1,9 +1,11 @@
 ﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
-namespace JobSity.Chatroom.Application.Shared.Data.Postgre.Mappings
+namespace JobSity.Chatroom.Application.Shared.Data.Postgres.Mappings
 {
+    [ExcludeFromCodeCoverage]
     public class ChatMessageMap : IEntityTypeConfiguration<ChatMessage>
     {
         public void Configure(EntityTypeBuilder<ChatMessage> builder)
@@ -19,8 +21,6 @@ namespace JobSity.Chatroom.Application.Shared.Data.Postgre.Mappings
 
             builder.Property(c => c.CreatedOn)
                 .IsRequired();
-            
-            //CreatedUserName
 
             builder.Property(c => c.Text)
                 .HasColumnType("varchar(255)")

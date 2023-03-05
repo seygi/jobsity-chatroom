@@ -1,7 +1,9 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 
 namespace JobSity.Chatroom.Application.Shared.Notifications
 {
+    [ExcludeFromCodeCoverage]
     public class NotificationContext : INotificationContext
     {
         private NotificationErrors _notifications;

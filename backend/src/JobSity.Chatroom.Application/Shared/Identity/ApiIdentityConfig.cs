@@ -7,11 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using NetDevPack.Identity.Data;
 using NetDevPack.Identity.Jwt;
-using System.IO;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace JobSity.Chatroom.Application.Shared.Identity
 {
+    [ExcludeFromCodeCoverage]
     public static class ApiIdentityConfig
     {
         public static IServiceCollection AddApiIdentityConfiguration(this IServiceCollection services, IConfiguration configuration)
@@ -27,7 +28,7 @@ namespace JobSity.Chatroom.Application.Shared.Identity
             services
                 .AddIdentity<IdentityUser, IdentityRole>(x =>
                 {
-                    x.Password.RequiredLength = 1;
+                    x.Password.RequiredLength = 6;
                     x.Password.RequireUppercase = false;
                     x.Password.RequireLowercase = false;
                     x.Password.RequireNonAlphanumeric = false;
@@ -88,27 +89,6 @@ namespace JobSity.Chatroom.Application.Shared.Identity
                 });
 
             return services;
-        }
-
-        private static void SymetricKeyConfiguration(IServiceCollection services, AppJwtSettings appSettings)
-        {
-            var key = Encoding.ASCII.GetBytes(appSettings.SecretKey);
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.RequireHttpsMetadata = true;
-                    options.SaveToken = true;
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidAudience = appSettings.Audience,
-                        ValidIssuer = appSettings.Issuer
-                    };
-                });
         }
     }
 }

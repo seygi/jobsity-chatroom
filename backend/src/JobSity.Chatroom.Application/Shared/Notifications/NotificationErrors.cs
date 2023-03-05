@@ -1,5 +1,8 @@
-﻿namespace JobSity.Chatroom.Application.Shared.Notifications
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace JobSity.Chatroom.Application.Shared.Notifications
 {
+    [ExcludeFromCodeCoverage]
     public sealed class NotificationErrors
     {
         private readonly IDictionary<string, IList<string>> _errorMessages = new Dictionary<string, IList<string>>();

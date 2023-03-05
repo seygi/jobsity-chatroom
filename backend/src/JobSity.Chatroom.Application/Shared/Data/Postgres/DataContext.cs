@@ -1,13 +1,13 @@
 ﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
 using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
-using JobSity.Chatroom.Application.Shared.Data.Postgre.Mappings;
+using JobSity.Chatroom.Application.Shared.Data.Postgres.Mappings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NetDevPack.Messaging;
 
-namespace JobSity.Chatroom.Application.Shared.Data.Postgre
+namespace JobSity.Chatroom.Application.Shared.Data.Postgres
 {
     public sealed class DataContext : IdentityDbContext
     {

@@ -1,9 +1,11 @@
 ﻿using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
-namespace JobSity.Chatroom.Application.Shared.Data.Postgre.Mappings
+namespace JobSity.Chatroom.Application.Shared.Data.Postgres.Mappings
 {
+    [ExcludeFromCodeCoverage]
     public class ChatRoomMap : IEntityTypeConfiguration<ChatRoom>
     {
         public void Configure(EntityTypeBuilder<ChatRoom> builder)

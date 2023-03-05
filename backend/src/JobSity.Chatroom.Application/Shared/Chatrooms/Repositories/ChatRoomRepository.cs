@@ -1,5 +1,5 @@
 ﻿using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
-using JobSity.Chatroom.Application.Shared.Data.Postgre;
+using JobSity.Chatroom.Application.Shared.Data.Postgres;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories

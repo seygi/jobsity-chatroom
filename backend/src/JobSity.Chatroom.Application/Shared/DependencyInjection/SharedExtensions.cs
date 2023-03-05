@@ -2,7 +2,7 @@
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
 using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
 using JobSity.Chatroom.Application.Shared.Configurations;
-using JobSity.Chatroom.Application.Shared.Data.Postgre;
+using JobSity.Chatroom.Application.Shared.Data.Postgres;
 using JobSity.Chatroom.Application.Shared.Identity;
 using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.Stocks.Services;
