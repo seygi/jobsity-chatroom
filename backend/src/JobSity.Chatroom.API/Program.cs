@@ -3,9 +3,11 @@ using JobSity.Chatroom.API.Filters;
 using JobSity.Chatroom.API.Hubs;
 using JobSity.Chatroom.Application;
 using NetDevPack.Identity.User;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.API
 {
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         public static void Main(string[] args)

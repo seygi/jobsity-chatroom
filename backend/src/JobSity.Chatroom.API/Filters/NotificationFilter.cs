@@ -1,9 +1,11 @@
 ﻿using JobSity.Chatroom.Application.Shared.Notifications;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.API.Filters
 {
+    [ExcludeFromCodeCoverage]
     public class NotificationFilter : IAsyncResultFilter
     {
         private readonly INotificationContext _notificationContext;

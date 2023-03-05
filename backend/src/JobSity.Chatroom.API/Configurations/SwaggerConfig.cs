@@ -1,7 +1,9 @@
 ﻿using Microsoft.OpenApi.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.API.Configurations
 {
+    [ExcludeFromCodeCoverage]
     public static class SwaggerConfig
     {
         public static void AddSwaggerConfiguration(this IServiceCollection services)

@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using NetDevPack.Identity.User;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.API.Hubs
 {
+    [ExcludeFromCodeCoverage]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ChatRoomHub : Hub
     {
