@@ -41,6 +41,8 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
             var result = await _stockService.GetStockAsync("None", CancellationToken.None);
 
             // assert
+            _client.ReceivedCalls().Should().HaveCount(1);
+            _bus.DidNotReceive();
             result.Should().BeEquivalentTo(StockResponse.Empty);
         }
 
@@ -64,6 +66,8 @@ TSLA,N/D,N/D,N/D,N/D,N/D,N/D,N/D";
             var defaultStock = new StockResponse(symbol, default, default, default, default, default, default, default);
 
             // assert
+            _client.ReceivedCalls().Should().HaveCount(1);
+            _bus.DidNotReceive();
             result.Should().BeEquivalentTo(defaultStock);
         }
 
@@ -87,6 +91,8 @@ AAPL.US,2023-03-02,22:00:03,144.38,146.71,143.9,145.91,52576265";
             var defaultStock = new StockResponse(symbol, DateTime.Parse("2023-03-02"), TimeSpan.Parse("22:00:03"), 144.38M, 146.71M, 143.9M, 145.91M, 52576265);
 
             // assert
+            _client.ReceivedCalls().Should().HaveCount(1);
+            _bus.DidNotReceive();
             result.Should().BeEquivalentTo(defaultStock);
         }
 
