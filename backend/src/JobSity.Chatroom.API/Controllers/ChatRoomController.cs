@@ -45,7 +45,7 @@ namespace JobSity.Chatroom.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Get([FromRoute] Guid chatRoomId, [FromQuery] DateTime? lastMessageTime,
+        public async Task<IActionResult> GetMessages([FromRoute] Guid chatRoomId, [FromQuery] DateTime? lastMessageTime,
             [FromServices] IUseCase<GetMessagesRoomInput, GetMessagesRoomListOutput> useCase,
             CancellationToken cancellationToken)
         {

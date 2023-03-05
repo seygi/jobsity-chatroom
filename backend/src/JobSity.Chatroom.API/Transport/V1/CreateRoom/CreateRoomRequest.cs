@@ -6,5 +6,9 @@ namespace JobSity.Chatroom.API.Transport.V1.CreateRoom
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
+        public CreateRoomRequest(string name)
+        {
+            Name = name;
+        }
     }
 }
