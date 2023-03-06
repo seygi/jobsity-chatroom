@@ -10,15 +10,16 @@ from an API using a specific command.
 ### Requirements
 
 * Must have docker installed
-* Must have permission to execute .bat
+* Must love to see yml and DockerFile :P
 
 ### How-to
 * Download the repo https://github.com/seygi/jobsity-chatroom
 * Open root folder in terminal
-* in terminal call the file ./execute.bat
-* wait until 1 consoleapp open(the consumer)
+* in terminal call type the command `docker-compose up --build`
+* wait until all containers stay running
 * access the url http://localhost:4200/public/login
 * create 1 or more accounts
+* create 1 or more rooms
 * have fun
 
 ## Mandatory Features
