@@ -1,34 +1,36 @@
 version: '3.0'
 
 services:
-  # db:
-  #   image: postgres:14.2-alpine
-  #   environment:
-  #     POSTGRES_PASSWORD: admin
-  #     POSTGRES_DB: chatrooms
-  #   ports:
-  #     - "5432:5432"
-  # rabbitmq:
-  #   image: rabbitmq:3.8-management-alpine
-  #   restart: always
-  #   environment:
-  #     RABBITMQ_DEFAULT_USER: rabbitmq
-  #     RABBITMQ_DEFAULT_PASS: rabbitmq
-  #     RABBITMQ_DEFAULT_VHOST: /
-  #   ports:
-  #     - "15672:15672"
-  #     - "5672:5672"
-  # backend:
-  #   build: ./backend/
-  #   ports:
-  #     - "7154:443"
-  #     - "5111:80"
-  #   depends_on:
-  #     - db
-  #     - rabbitmq
+  db:
+    image: postgres:14.2-alpine
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: chatrooms
+    ports:
+      - "5432:5432"
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+      RABBITMQ_DEFAULT_VHOST: /
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  backend:
+    build: ./backend/
+    ports:
+      - "7154:443"
+      - "5111:80"
+    depends_on:
+      - db
+      - rabbitmq
   frontend:
     build: ./frontend/JobSity.Chatroom.UI
     ports:
       - "4200:4200"
+    depends_on:
+      - backend
     environment:
       - CHOKIDAR_USEPOLLING=true
