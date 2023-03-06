@@ -2,6 +2,7 @@ using JobSity.Chatroom.API.Configurations;
 using JobSity.Chatroom.API.Filters;
 using JobSity.Chatroom.API.Hubs;
 using JobSity.Chatroom.Application;
+using JobSity.Chatroom.Application.Shared.Data.Postgres;
 using NetDevPack.Identity.User;
 using System.Diagnostics.CodeAnalysis;
 
@@ -40,8 +41,14 @@ namespace JobSity.Chatroom.API
             builder.Services.AddAspNetUserConfiguration();
 
             builder.Services.AddSwaggerConfiguration();
-
+            
             var app = builder.Build();
+
+            //for ensure create database
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetService<DataContext>();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
