@@ -1,4 +1,5 @@
 using JobSity.Chatroom.API.Configurations;
+using JobSity.Chatroom.API.Consumers;
 using JobSity.Chatroom.API.Filters;
 using JobSity.Chatroom.API.Hubs;
 using JobSity.Chatroom.Application;
@@ -35,6 +36,8 @@ namespace JobSity.Chatroom.API
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddApplication(builder.Configuration);
+            
+            builder.Services.AddHostedService<StockConsumer>();
 
             builder.Services.AddSignalR();
 
