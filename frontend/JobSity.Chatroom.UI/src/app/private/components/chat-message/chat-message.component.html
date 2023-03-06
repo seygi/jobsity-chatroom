@@ -1,0 +1,9 @@
+<!--  -->
+<span style="display: flex;" [ngClass]="{ownContainer: message.createdUserId === userId}">
+  <p >
+    <em>{{message.createdUserName}}</em>&nbsp;&nbsp;&nbsp;&nbsp;<em> {{message.createdOn | date: 'dd/MM/yyyy hh:mm a'}}</em>
+    <br />
+    {{message.text}}
+  </p>
+
+</span>
