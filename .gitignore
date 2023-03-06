@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/backend/JobSityChallenge-main
+/frontend/JobSityNETChallenge.UI
+/JobSityChallenge-main.zip
+/.vscode/settings.json
+/backend/testEnvironments.json
+/frontend/package-lock.json
+/backend/test/JobSity.Chatroom.Tests.Unit/coverage.json

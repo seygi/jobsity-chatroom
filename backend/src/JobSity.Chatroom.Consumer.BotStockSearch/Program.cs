@@ -7,11 +7,12 @@ using System.Diagnostics.CodeAnalysis;
 namespace JobSity.Chatroom.Consumer.BotStockSearch
 {
     [ExcludeFromCodeCoverage]
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            Console.ReadLine();
         }
         public static IHostBuilder CreateHostBuilder(string[] args)
         {

@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1D9FFB72-D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.Application", "src\JobSity.Chatroom.Application\JobSity.Chatroom.Application.csproj", "{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSity.Chatroom.Consumer.BotStockSearch", "src\JobSity.Chatroom.Consumer.BotStockSearch\JobSity.Chatroom.Consumer.BotStockSearch.csproj", "{493CA225-75BD-4BA6-803C-B91843BFC509}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.Consumer.BotStockSearch", "src\JobSity.Chatroom.Consumer.BotStockSearch\JobSity.Chatroom.Consumer.BotStockSearch.csproj", "{493CA225-75BD-4BA6-803C-B91843BFC509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSity.Chatroom.Tests.Unit", "test\JobSity.Chatroom.Tests.Unit\JobSity.Chatroom.Tests.Unit.csproj", "{4B949DDA-5590-44DA-8C89-4A4FC716C340}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.Tests.Unit", "test\JobSity.Chatroom.Tests.Unit\JobSity.Chatroom.Tests.Unit.csproj", "{4B949DDA-5590-44DA-8C89-4A4FC716C340}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JobSity.Chatroom.Consumer.BotStockSearch": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
