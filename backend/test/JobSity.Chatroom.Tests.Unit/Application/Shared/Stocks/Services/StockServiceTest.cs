@@ -1,4 +1,6 @@
-﻿using JobSity.Chatroom.Application.Shared.Configurations.Bot;
+﻿using Flurl.Http;
+using Flurl.Http.Testing;
+using JobSity.Chatroom.Application.Shared.Configurations.Bot;
 using JobSity.Chatroom.Application.Shared.Identity;
 using JobSity.Chatroom.Application.Shared.Messaging;
 using JobSity.Chatroom.Application.Shared.Stocks.Entities;
@@ -7,6 +9,7 @@ using JobSity.Chatroom.Application.Shared.Stocks.Services;
 using JobSity.Chatroom.Tests.Unit;
 using Microsoft.Extensions.Options;
 using NetDevPack.Identity.Jwt;
+using Newtonsoft.Json;
 using NSubstitute;
 using System.Net;
 
@@ -19,15 +22,17 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Stocks.Services
         private IStockService _stockService;
         private ITokenService _tokenService;
         private readonly IOptionsSnapshot<BotConfiguration> _botConfiguration;
+        private readonly HttpTest _httpTest;
 
         public StockServiceTest()
         {
+            _httpTest = new HttpTest();
             _bus = Substitute.For<IBus>();
             _botConfiguration = Substitute.For<IOptionsSnapshot<BotConfiguration>>();
             _botConfiguration.Value.Returns(
                 new BotConfiguration
                 {
-                    BaseUrl = ""
+                    BaseUrl = "http://localhost:1211"
                 }
             );
 
@@ -123,18 +128,18 @@ AAPL.US,2023-03-02,22:00:03,144.38,146.71,143.9,145.91,52576265";
         }
 
         [Fact(DisplayName = "ShouldReturnCompletedTaskWhenCallEnqueueStockToSearchAsync")]
-        public void ShouldReturnCompletedTaskWhenCallEnqueueStockToSearchAsync()
+        public async Task ShouldReturnCompletedTaskWhenCallEnqueueStockToSearchAsync()
         {
             // arrange
-            _bus
-                .PublishAsync(Arg.Any<Stock>(), Arg.Any<string>())
-                .Returns(Task.CompletedTask);
+
+            _httpTest.RespondWith().RespondWith("", 201);
+            //_httpTest.CallsTo("*").AllowRealHttp();
 
             // act
-            var result = _stockService.EnqueueStockToSearchAsync(Stock.Create("", Guid.Empty), CancellationToken.None);
+            await _stockService.EnqueueStockToSearchAsync(Stock.Create("", Guid.Empty), CancellationToken.None);
 
             // assert
-            result.Should().BeEquivalentTo(Task.CompletedTask);
+            _httpTest.ShouldHaveMadeACall();
         }
     }
 }

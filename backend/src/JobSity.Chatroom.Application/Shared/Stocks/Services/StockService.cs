@@ -29,7 +29,6 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
             var _botToken = _tokenService.GenerateBotToken();
 
             var url = $"{_botConfiguration.BaseUrl}/api/BotStock";
-            var body = System.Text.Json.JsonSerializer.Serialize(stock);
 
             return url
                 .WithHeader("Authorization", $"Bearer {_botToken}")
