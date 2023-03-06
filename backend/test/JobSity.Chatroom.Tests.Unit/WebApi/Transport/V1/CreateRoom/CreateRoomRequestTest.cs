@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using JobSity.Chatroom.API.Transport.V1.CreateRoom;
+﻿using JobSity.Chatroom.API.Transport.V1.CreateRoom;
 
 namespace JobSity.Chatroom.Tests.Unit.WebApi.Transport.V1.CreateRoom
 {

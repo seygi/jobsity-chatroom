@@ -1,5 +1,4 @@
-﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
-using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
+﻿using JobSity.Chatroom.Application.Shared.Chatrooms.Entities;
 
 namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
 {

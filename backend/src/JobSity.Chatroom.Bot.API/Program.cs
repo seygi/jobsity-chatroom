@@ -1,8 +1,7 @@
-using JobSity.Chatroom.Application.Shared.Data.Postgres;
-using JobSity.Chatroom.Bot.API.Filters;
-using NetDevPack.Identity.User;
 using JobSity.Chatroom.Application;
 using JobSity.Chatroom.Bot.API.Configurations;
+using JobSity.Chatroom.Bot.API.Filters;
+using NetDevPack.Identity.User;
 
 namespace JobSity.Chatroom.Bot.API
 {

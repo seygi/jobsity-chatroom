@@ -6,7 +6,7 @@ namespace JobSity.Chatroom.Application.Features.Chatrooms.CreateRoom.UseCase
     public sealed class CreateRoomInput : CreateRoomInputBase, IInput
     {
         public CreateRoomInput(string name, Guid createdUserId)
-            : base(name, createdUserId) 
+            : base(name, createdUserId)
         {
         }
 

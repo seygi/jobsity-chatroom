@@ -1,6 +1,5 @@
 ﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Entities;
 using JobSity.Chatroom.Application.Shared.UseCase;
-using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.Application.Features.ChatroomMessages.GetMessagesRoom.UseCase
 {

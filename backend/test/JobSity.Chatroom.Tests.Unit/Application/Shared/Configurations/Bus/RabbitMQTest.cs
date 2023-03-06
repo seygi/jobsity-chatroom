@@ -1,5 +1,4 @@
-﻿using JobSity.Chatroom.Application.Shared.Configurations.DataBase;
-using Rabbit = JobSity.Chatroom.Application.Shared.Configurations.Bus;
+﻿using Rabbit = JobSity.Chatroom.Application.Shared.Configurations.Bus;
 
 namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Configurations.Bus
 {

@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace JobSity.Chatroom.API.Transport.V1.GetMessagesRoom
 {

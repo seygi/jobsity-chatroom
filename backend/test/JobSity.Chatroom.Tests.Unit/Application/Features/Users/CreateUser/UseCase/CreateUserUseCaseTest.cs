@@ -40,7 +40,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Features.Users.CreateUser.UseC
             _createUserUseCase = new CreateUserUseCase(
                 _validatorService,
                 _notificationContext,
-                _appJwtSettings, 
+                _appJwtSettings,
                 _userManager);
         }
 

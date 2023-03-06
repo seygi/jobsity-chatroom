@@ -14,7 +14,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Configurations
             var rabbitMQ = new Rabbit.RabbitMQ();
 
             // act
-            var result = new ConnectionStrings { Postgres = postgres, RabbitMQ = rabbitMQ};
+            var result = new ConnectionStrings { Postgres = postgres, RabbitMQ = rabbitMQ };
 
             // assert
             AssertProperties(result, postgres, rabbitMQ);

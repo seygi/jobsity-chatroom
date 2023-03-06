@@ -23,7 +23,7 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories
         {
             return await DbSet
                     .Where(p => p.ChatRoomId == chatRoomId)
-                    .OrderByDescending(x=>x.CreatedOn)
+                    .OrderByDescending(x => x.CreatedOn)
                     .Take(50)
                     .ToListAsync();
         }

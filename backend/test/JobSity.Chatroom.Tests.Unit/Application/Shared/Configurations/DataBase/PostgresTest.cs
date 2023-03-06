@@ -1,6 +1,4 @@
 ﻿using JobSity.Chatroom.Application.Shared.Configurations.DataBase;
-using JobSity.Chatroom.Tests.Unit;
-using Microsoft.AspNetCore.Hosting.Server;
 
 namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Configurations.DataBase
 {
@@ -24,7 +22,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Configurations.DataBase
         public void ShouldCreateObject()
         {
             // arrange - act - assert
-            AssertProperties(_postgres, "127.0.0.1","1525", "UNIT_TEST", "UnitTest", "123321");
+            AssertProperties(_postgres, "127.0.0.1", "1525", "UNIT_TEST", "UnitTest", "123321");
         }
 
         [Fact(DisplayName = "ShouldCreateEmptyObject")]

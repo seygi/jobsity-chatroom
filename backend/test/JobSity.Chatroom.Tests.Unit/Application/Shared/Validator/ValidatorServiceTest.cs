@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.Results;
 using JobSity.Chatroom.Application.Features.Users.CreateUser.UseCase;
 using JobSity.Chatroom.Application.Shared.Notifications;

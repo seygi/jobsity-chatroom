@@ -20,7 +20,7 @@ namespace JobSity.Chatroom.API.Hubs
             _aspNetUser = aspNetUser;
             _createMessageUseCase = createMessageUseCase;
         }
-        
+
         public async Task SendMessage(Guid chatRoomId, string text)
         {
             var message = CreateMessageInput.Create(_aspNetUser.GetUserId(), chatRoomId, _aspNetUser.GetUserEmail(), text);

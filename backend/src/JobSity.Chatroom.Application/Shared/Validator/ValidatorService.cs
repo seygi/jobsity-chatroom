@@ -10,7 +10,7 @@ namespace JobSity.Chatroom.Application.Shared.Validator
         private readonly IValidator<TInput> _validator;
         private readonly INotificationContext _notificationContext;
 
-        public ValidatorService(IValidator<TInput> validator, INotificationContext notificationContext) 
+        public ValidatorService(IValidator<TInput> validator, INotificationContext notificationContext)
             => (_validator, _notificationContext) = (validator, notificationContext);
 
         public bool ValidateAndNotifyIfError(TInput input)

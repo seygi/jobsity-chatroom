@@ -16,7 +16,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.U
         private readonly INotificationContext _notificationContext;
 
         public CreateUserUseCase(IValidatorService<CreateUserInput> validatorService, INotificationContext notificationContext, IOptions<AppJwtSettings> appJwtSettings, UserManager<IdentityUser> userManager)
-            : base(appJwtSettings, userManager) 
+            : base(appJwtSettings, userManager)
         {
             _validatorService = validatorService;
             _notificationContext = notificationContext;

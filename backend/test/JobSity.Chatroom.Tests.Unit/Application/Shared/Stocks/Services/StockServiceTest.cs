@@ -1,15 +1,11 @@
-﻿using Flurl.Http;
-using Flurl.Http.Testing;
+﻿using Flurl.Http.Testing;
 using JobSity.Chatroom.Application.Shared.Configurations.Bot;
 using JobSity.Chatroom.Application.Shared.Identity;
 using JobSity.Chatroom.Application.Shared.Messaging;
 using JobSity.Chatroom.Application.Shared.Stocks.Entities;
 using JobSity.Chatroom.Application.Shared.Stocks.Model;
 using JobSity.Chatroom.Application.Shared.Stocks.Services;
-using JobSity.Chatroom.Tests.Unit;
 using Microsoft.Extensions.Options;
-using NetDevPack.Identity.Jwt;
-using Newtonsoft.Json;
 using NSubstitute;
 using System.Net;
 

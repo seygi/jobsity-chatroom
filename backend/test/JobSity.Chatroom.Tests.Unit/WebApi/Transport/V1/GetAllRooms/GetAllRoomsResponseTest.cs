@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace JobSity.Chatroom.API.Transport.V1.GetAllRooms
+﻿namespace JobSity.Chatroom.API.Transport.V1.GetAllRooms
 {
     public sealed class GetAllRoomsResponseTest
     {

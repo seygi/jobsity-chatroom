@@ -34,7 +34,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.U
                 var stockTicker = input.Text.ToLower().Split("/stock=").Last();
                 await _stockService.EnqueueStockToSearchAsync(Stock.Create(stockTicker, input.ChatRoomId), cancellationToken);
             }
-            else 
+            else
             {
                 var rowsAffected = await _chatMessageService.CreateMessageAsync(input, cancellationToken);
 
@@ -44,7 +44,7 @@ namespace JobSity.Chatroom.Application.Features.ChatroomMessages.CreateMessage.U
                     return CreateMessageOutput.Empty;
                 }
             }
-            
+
             return CreateMessageOutput.Create(true);
         }
     }

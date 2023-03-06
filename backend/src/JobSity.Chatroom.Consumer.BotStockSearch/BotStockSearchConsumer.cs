@@ -35,7 +35,8 @@ namespace JobSity.Chatroom.Consumer.BotStockSearch
             await _hubConnection.StartAsync();
             await _stockValueuseCase.ExecuteAsync(DefaultInput.Default, CancellationToken.None);
 
-            var sendToHub = SyncBotMessagesInput.Create(async (qMsg) => {
+            var sendToHub = SyncBotMessagesInput.Create(async (qMsg) =>
+            {
                 await _hubConnection.InvokeAsync("SendMessage", qMsg.ChatRoomId, qMsg.Text);
             });
 

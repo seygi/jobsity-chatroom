@@ -11,7 +11,7 @@ namespace JobSity.Chatroom.API.Consumers
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly IHubContext<ChatRoomHub> _hubContext;
-        
+
         private readonly Guid _botGuid = Guid.Parse("c18d3f66-e32f-461f-8e53-843803a99694");
         private readonly string _botEmail = "bot@jobsity.com";
 

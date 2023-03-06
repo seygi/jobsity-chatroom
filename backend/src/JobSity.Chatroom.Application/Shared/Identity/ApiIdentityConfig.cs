@@ -18,7 +18,7 @@ namespace JobSity.Chatroom.Application.Shared.Identity
         public static IServiceCollection AddApiIdentityConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionStrings = configuration.GetSection("ConnectionStrings").Get<ConnectionStrings>();
-           
+
             // Default EF Context for Identity (inside of the NetDevPack.Identity)
             services.AddIdentityEntityFrameworkContextConfiguration(options =>
                          options.UseNpgsql(connectionStrings.Postgres.GetConnectionString(),
@@ -75,8 +75,8 @@ namespace JobSity.Chatroom.Application.Shared.Identity
                         {
                             var accessToken = context.Request.Headers.Authorization.FirstOrDefault();
                             if (accessToken != null)
-                            { 
-                            context.Token = accessToken?.Replace("Bearer ", string.Empty);
+                            {
+                                context.Token = accessToken?.Replace("Bearer ", string.Empty);
                             }
                             else if (context.HttpContext.Request.Path.StartsWithSegments("/chat-room-hub"))
                             {

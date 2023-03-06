@@ -10,7 +10,7 @@
         public decimal Low { get; set; }
         public decimal Close { get; set; }
         public int Volume { get; set; }
-        
+
         public StockResponse(string symbol, DateTime date, TimeSpan time, decimal open, decimal high, decimal low, decimal close, int volume)
         {
             Symbol = symbol;

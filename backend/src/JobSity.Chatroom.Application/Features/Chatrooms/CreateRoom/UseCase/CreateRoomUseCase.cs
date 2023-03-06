@@ -1,5 +1,4 @@
-﻿using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
-using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
+﻿using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
 using JobSity.Chatroom.Application.Shared.Notifications;
 using JobSity.Chatroom.Application.Shared.UseCase;
 using JobSity.Chatroom.Application.Shared.Validator;

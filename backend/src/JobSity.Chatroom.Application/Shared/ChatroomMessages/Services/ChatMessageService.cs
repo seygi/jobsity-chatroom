@@ -2,7 +2,6 @@
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Repositories;
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.UseCases.Inputs;
 using JobSity.Chatroom.Application.Shared.Messaging;
-using NetDevPack.Messaging;
 
 namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
 {

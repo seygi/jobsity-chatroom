@@ -53,7 +53,7 @@ namespace JobSity.Chatroom.Application.Shared.ChatroomMessages.Services
         {
             // Arrange
             var messageToAdd = new ChatMessage(Guid.NewGuid(), Guid.NewGuid(), "Test User 1", "Test message 1");
-            var messageToAddInput = CreateMessageInput.Create(messageToAdd.CreatedUserId, messageToAdd.ChatRoomId, messageToAdd.CreatedUserName,messageToAdd.Text);
+            var messageToAddInput = CreateMessageInput.Create(messageToAdd.CreatedUserId, messageToAdd.ChatRoomId, messageToAdd.CreatedUserName, messageToAdd.Text);
 
             // Act
             _chatMessageService.CreateMessageAsync(messageToAddInput, CancellationToken.None);

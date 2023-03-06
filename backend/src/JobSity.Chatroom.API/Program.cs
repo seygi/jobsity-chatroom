@@ -15,7 +15,7 @@ namespace JobSity.Chatroom.API
         public static void Main(string[] args)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-           
+
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Configuration
@@ -36,7 +36,7 @@ namespace JobSity.Chatroom.API
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddApplication(builder.Configuration);
-            
+
             builder.Services.AddHostedService<StockConsumer>();
 
             builder.Services.AddSignalR();
@@ -44,7 +44,7 @@ namespace JobSity.Chatroom.API
             builder.Services.AddAspNetUserConfiguration();
 
             builder.Services.AddSwaggerConfiguration();
-            
+
             var app = builder.Build();
 
             //for ensure create database
@@ -73,7 +73,7 @@ namespace JobSity.Chatroom.API
             });
 
             app.UseAuthConfiguration();
-            
+
             //app.UseAuthorization();
 
             app.MapControllers();

@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace JobSity.Chatroom.API.Transport.V1.GetUser
+﻿namespace JobSity.Chatroom.API.Transport.V1.GetUser
 {
     public class GetUserResponseTest
     {
