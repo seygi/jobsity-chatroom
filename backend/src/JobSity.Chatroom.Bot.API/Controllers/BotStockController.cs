@@ -4,12 +4,14 @@ using JobSity.Chatroom.Bot.API.Transport.V1.SearchStock;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.Bot.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [ExcludeFromCodeCoverage]
     public class BotStockController : ControllerBase
     {
 

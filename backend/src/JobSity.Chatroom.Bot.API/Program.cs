@@ -2,9 +2,11 @@ using JobSity.Chatroom.Application;
 using JobSity.Chatroom.Bot.API.Configurations;
 using JobSity.Chatroom.Bot.API.Filters;
 using NetDevPack.Identity.User;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JobSity.Chatroom.Bot.API
 {
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         public static void Main(string[] args)
