@@ -18,14 +18,14 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
-  # backend:
-  #   build: ./backend/
-  #   ports:
-  #     - "7154:443"
-  #     - "5111:80"
-  #   depends_on:
-  #     - db
-  #     - rabbitmq
+  backend:
+    build: ./backend/
+    ports:
+      - "7154:443"
+      - "5111:80"
+    depends_on:
+      - db
+      - rabbitmq
   # frontend:
   #   build: ./frontend/
   #   ports:
