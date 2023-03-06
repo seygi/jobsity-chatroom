@@ -32,6 +32,7 @@ namespace JobSity.Chatroom.Application.Shared.Identity
                     x.Password.RequireUppercase = false;
                     x.Password.RequireLowercase = false;
                     x.Password.RequireNonAlphanumeric = false;
+                    x.Password.RequireDigit = false;
                 })
                 .AddEntityFrameworkStores<NetDevPackAppDbContext>()
                 .AddDefaultTokenProviders();
