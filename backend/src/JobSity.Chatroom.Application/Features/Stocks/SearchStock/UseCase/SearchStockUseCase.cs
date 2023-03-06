@@ -6,7 +6,7 @@ using JobSity.Chatroom.Application.Shared.UseCase;
 
 namespace JobSity.Chatroom.Application.Features.Stocks.SearchStock.UseCase
 {
-    internal sealed class SearchStockUseCase : IUseCase<DefaultInput, SearchStockOutput>
+    internal sealed class SearchStockUseCase : IUseCase<SearchStockInput, SearchStockOutput>
     {
         private readonly IStockService _stockService;
         private readonly IChatMessageService _chatMessageService;
@@ -17,19 +17,16 @@ namespace JobSity.Chatroom.Application.Features.Stocks.SearchStock.UseCase
             _chatMessageService = chatMessageService;
         }
 
-        public async Task<SearchStockOutput> ExecuteAsync(DefaultInput input, CancellationToken cancellationToken)
+        public async Task<SearchStockOutput> ExecuteAsync(SearchStockInput input, CancellationToken cancellationToken)
         {
-            await _stockService.SubscribeAsync(async (stk) =>
-            {
-                var stockValue = await _stockService.GetStockAsync(stk.Ticker, cancellationToken);
+            var stockValue = await _stockService.GetStockAsync(input.Ticker, cancellationToken);
 
-                var message = new ChatMessage(Guid.Empty, 
-                    stk.ChatRoomId, 
-                    "chatbot@jobsity.com", 
-                    $"{stk.Ticker.ToUpper()} quote is ${stockValue.Close} per share");
+            var message = new ChatMessage(Guid.Empty,
+                input.ChatRoomId,
+                "chatbot@jobsity.com",
+                $"{input.Ticker.ToUpper()} quote is ${stockValue.Close} per share");
 
-                await _chatMessageService.EnqueueMessageToInsertAsync(message, cancellationToken);
-            });
+            await _chatMessageService.EnqueueMessageToInsertAsync(message, cancellationToken);
 
             return SearchStockOutput.Empty;
         }

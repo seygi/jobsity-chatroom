@@ -12,7 +12,7 @@ namespace JobSity.Chatroom.Application.Features.Stocks.SearchStock.DependencyInj
     {
         public static IServiceCollection AddSearchStock(this IServiceCollection services)
         {
-            services.TryAddScoped<IUseCase<DefaultInput, SearchStockOutput>, SearchStockUseCase>();
+            services.TryAddScoped<IUseCase<SearchStockInput, SearchStockOutput>, SearchStockUseCase>();
 
             return services;
         }

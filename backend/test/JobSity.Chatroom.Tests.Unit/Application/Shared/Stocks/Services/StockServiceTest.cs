@@ -1,8 +1,12 @@
-﻿using JobSity.Chatroom.Application.Shared.Messaging;
+﻿using JobSity.Chatroom.Application.Shared.Configurations.Bot;
+using JobSity.Chatroom.Application.Shared.Identity;
+using JobSity.Chatroom.Application.Shared.Messaging;
 using JobSity.Chatroom.Application.Shared.Stocks.Entities;
 using JobSity.Chatroom.Application.Shared.Stocks.Model;
 using JobSity.Chatroom.Application.Shared.Stocks.Services;
 using JobSity.Chatroom.Tests.Unit;
+using Microsoft.Extensions.Options;
+using NetDevPack.Identity.Jwt;
 using NSubstitute;
 using System.Net;
 
@@ -13,17 +17,28 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Stocks.Services
         private HttpClient _client;
         private IBus _bus;
         private IStockService _stockService;
+        private ITokenService _tokenService;
+        private readonly IOptionsSnapshot<BotConfiguration> _botConfiguration;
 
         public StockServiceTest()
         {
             _bus = Substitute.For<IBus>();
+            _botConfiguration = Substitute.For<IOptionsSnapshot<BotConfiguration>>();
+            _botConfiguration.Value.Returns(
+                new BotConfiguration
+                {
+                    BaseUrl = ""
+                }
+            );
+
+            _tokenService = Substitute.For<ITokenService>();
             var response = @"";
             var messageHandler = new MockHttpMessageHandler(response, HttpStatusCode.InternalServerError);
             _client = new HttpClient(messageHandler)
             {
                 BaseAddress = new Uri("http://not-important.com")
             };
-            _stockService = new StockService(_bus, _client);
+            _stockService = new StockService(_bus, _client, _tokenService, _botConfiguration);
         }
 
         [Fact(DisplayName = "ShouldReturnEmptyWhenStockStatusCodeIsNotSuccess")]
@@ -36,7 +51,7 @@ namespace JobSity.Chatroom.Tests.Unit.Application.Shared.Stocks.Services
             {
                 BaseAddress = new Uri("http://not-important.com")
             };
-            _stockService = new StockService(_bus, _client);
+            _stockService = new StockService(_bus, _client, _tokenService, _botConfiguration);
 
             // act
             var result = await _stockService.GetStockAsync("None", CancellationToken.None);
@@ -56,7 +71,7 @@ TSLA,N/D,N/D,N/D,N/D,N/D,N/D,N/D";
             {
                 BaseAddress = new Uri("http://not-important.com")
             };
-            _stockService = new StockService(_bus, _client);
+            _stockService = new StockService(_bus, _client, _tokenService, _botConfiguration);
 
             var symbol = "TSLA";
 
@@ -79,7 +94,7 @@ AAPL.US,2023-03-02,22:00:03,144.38,146.71,143.9,145.91,52576265";
             {
                 BaseAddress = new Uri("http://not-important.com")
             };
-            _stockService = new StockService(_bus, _client);
+            _stockService = new StockService(_bus, _client, _tokenService, _botConfiguration);
 
             var symbol = "AAPL.US";
 

@@ -1,6 +1,10 @@
-﻿using JobSity.Chatroom.Application.Shared.Messaging;
+﻿using Flurl.Http;
+using JobSity.Chatroom.Application.Shared.Configurations.Bot;
+using JobSity.Chatroom.Application.Shared.Identity;
+using JobSity.Chatroom.Application.Shared.Messaging;
 using JobSity.Chatroom.Application.Shared.Stocks.Entities;
 using JobSity.Chatroom.Application.Shared.Stocks.Model;
+using Microsoft.Extensions.Options;
 using System.Globalization;
 
 namespace JobSity.Chatroom.Application.Shared.Stocks.Services
@@ -10,15 +14,26 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
         private readonly HttpClient _client;
         private readonly IBus _bus;
         private readonly string _stockQueueName = "stocksQueue";
-        public StockService(IBus bus, HttpClient client)
+        private readonly BotConfiguration _botConfiguration;
+        private readonly ITokenService _tokenService;
+        public StockService(IBus bus, HttpClient client, ITokenService tokenService, IOptionsSnapshot<BotConfiguration> configuration)
         {
             _bus = bus;
             _client = client;
+            _tokenService = tokenService;
+            _botConfiguration = configuration.Value;
         }
 
         public Task EnqueueStockToSearchAsync(Stock stock, CancellationToken cancellationToken)
         {
-            return _bus.PublishAsync(stock, _stockQueueName);
+            var _botToken = _tokenService.GenerateBotToken();
+
+            var url = $"{_botConfiguration.BaseUrl}/api/BotStock";
+            var body = System.Text.Json.JsonSerializer.Serialize(stock);
+
+            return url
+                .WithHeader("Authorization", $"Bearer {_botToken}")
+                .PostJsonAsync(stock);
         }
 
         public async Task SubscribeAsync(Func<Stock, Task> handler)
@@ -36,7 +51,7 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
 
             string body = await response.Content.ReadAsStringAsync();
             var data = body.Substring(body.IndexOf(Environment.NewLine, StringComparison.Ordinal) + 2);
-            
+
             var processedArray = data.Split(',');
             string symbol = processedArray[0];
             DateTime date = !processedArray[1].Contains("N/D") ? Convert.ToDateTime(processedArray[1]) : default;

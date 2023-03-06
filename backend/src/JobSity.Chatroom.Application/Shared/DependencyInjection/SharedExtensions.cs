@@ -2,6 +2,7 @@
 using JobSity.Chatroom.Application.Shared.ChatroomMessages.Services;
 using JobSity.Chatroom.Application.Shared.Chatrooms.Services;
 using JobSity.Chatroom.Application.Shared.Configurations;
+using JobSity.Chatroom.Application.Shared.Configurations.Bot;
 using JobSity.Chatroom.Application.Shared.Data.Postgres;
 using JobSity.Chatroom.Application.Shared.Identity;
 using JobSity.Chatroom.Application.Shared.Notifications;
@@ -24,6 +25,7 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
         {
             return services
                .AddConnectionStrings()
+               .AddBotConfigurations()
                .AddPostgres(configuration) // Setting DBContexts
                .AddRabbitMQ(configuration)
                .AddValidatorService()
@@ -40,6 +42,14 @@ namespace JobSity.Chatroom.Application.Shared.DependencyInjection
         {
             services.AddOptions<ConnectionStrings>()
                .Configure<IConfiguration>((settings, configuration) => { configuration.GetSection("ConnectionStrings").Bind(settings); });
+
+            return services;
+        }
+
+        private static IServiceCollection AddBotConfigurations(this IServiceCollection services)
+        {
+            services.AddOptions<BotConfiguration>()
+               .Configure<IConfiguration>((settings, configuration) => { configuration.GetSection(BotConfiguration.SectionName).Bind(settings); });
 
             return services;
         }

@@ -25,12 +25,6 @@ namespace JobSity.Chatroom.API.Consumers
         {
             using (var scope = _serviceScopeFactory.CreateScope())
             {
-                var _stockValueUseCase = scope.ServiceProvider.GetService<IUseCase<DefaultInput, SearchStockOutput>>();
-                await _stockValueUseCase.ExecuteAsync(DefaultInput.Default, CancellationToken.None);
-            }
-
-            using (var scope = _serviceScopeFactory.CreateScope())
-            {
                 var _syncMessagesUseCase = scope.ServiceProvider.GetService<IUseCase<SyncBotMessagesInput, SyncBotMessagesOutput>>();
                 var sendToHub = SyncBotMessagesInput.Create(HandleMessageReceivedAsync);
                 await _syncMessagesUseCase.ExecuteAsync(sendToHub, CancellationToken.None);
