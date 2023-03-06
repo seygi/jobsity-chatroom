@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.Consumer.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSity.Chatroom.Tests.Unit", "test\JobSity.Chatroom.Tests.Unit\JobSity.Chatroom.Tests.Unit.csproj", "{4B949DDA-5590-44DA-8C89-4A4FC716C340}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSity.Chatroom.Bot.API", "src\JobSity.Chatroom.Bot.API\JobSity.Chatroom.Bot.API.csproj", "{6FAB00B9-26F4-4EC8-AE56-5C3CD27DCB77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{4B949DDA-5590-44DA-8C89-4A4FC716C340}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B949DDA-5590-44DA-8C89-4A4FC716C340}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B949DDA-5590-44DA-8C89-4A4FC716C340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FAB00B9-26F4-4EC8-AE56-5C3CD27DCB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FAB00B9-26F4-4EC8-AE56-5C3CD27DCB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FAB00B9-26F4-4EC8-AE56-5C3CD27DCB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FAB00B9-26F4-4EC8-AE56-5C3CD27DCB77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{B62C431C-80F0-4587-9B81-8C1B7D7BD8F4} = {00D469BA-2B14-4E24-8A69-728B9F6C2539}
 		{493CA225-75BD-4BA6-803C-B91843BFC509} = {68799472-FF78-4377-BAEF-406AA566BA9E}
 		{4B949DDA-5590-44DA-8C89-4A4FC716C340} = {1D9FFB72-DD57-4C41-9710-29124F96DA04}
+		{6FAB00B9-26F4-4EC8-AE56-5C3CD27DCB77} = {A79B2AD3-E7D7-49BD-8556-729D2CC172AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EA175FC-BEDE-4F9C-94C6-C99D011A0AE9}
