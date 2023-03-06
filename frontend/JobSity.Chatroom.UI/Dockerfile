@@ -1,16 +1,20 @@
+# Use the official Node.js 14 image as the base image
+FROM node:14
 
-# Stage 1: build
-FROM node:14 AS development
+# Set the working directory to /app
+WORKDIR /app
 
-WORKDIR /thomas/frontend/src/app
-
+# Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
 
+# Install the dependencies
 RUN npm install
-RUN npm install -g @angular/cli@12.0.0
 
+# Copy the remaining files to the container
 COPY . .
 
-RUN npm run build
-
+# Expose the port used by the Angular app
 EXPOSE 4200
+
+# Start the development server with `ng serve`
+CMD ["npm", "start"]
