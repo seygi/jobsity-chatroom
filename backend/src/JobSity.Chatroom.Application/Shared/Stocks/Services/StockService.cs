@@ -51,6 +51,9 @@ namespace JobSity.Chatroom.Application.Shared.Stocks.Services
             string body = await response.Content.ReadAsStringAsync();
             var data = body.Substring(body.IndexOf(Environment.NewLine, StringComparison.Ordinal) + 2);
 
+            if (data.Contains("N/D"))
+                return StockResponse.Empty;
+
             var processedArray = data.Split(',');
             string symbol = processedArray[0];
             DateTime date = !processedArray[1].Contains("N/D") ? Convert.ToDateTime(processedArray[1]) : default;

@@ -21,6 +21,9 @@ namespace JobSity.Chatroom.Application.Features.Stocks.SearchStock.UseCase
         {
             var stockValue = await _stockService.GetStockAsync(input.Ticker, cancellationToken);
 
+            if (string.IsNullOrEmpty(stockValue.Symbol))
+                return SearchStockOutput.Empty;
+
             var message = new ChatMessage(Guid.Empty,
                 input.ChatRoomId,
                 "chatbot@jobsity.com",
